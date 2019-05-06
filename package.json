@@ -1,0 +1,24 @@
+{
+  "name": "revolution",
+  "version": "2.0.0",
+  "description": "free media",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mii-Mi/revolution_node.git"
+  },
+  "author": "Mii_Mi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mii-Mi/revolution_node/issues"
+  },
+  "homepage": "https://github.com/Mii-Mi/revolution_node#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "mongoose": "^5.5.5"
+  }
+}
