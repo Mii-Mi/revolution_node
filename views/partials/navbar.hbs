@@ -16,12 +16,15 @@
             </ul>
         </li>
 
-        <li><a href="view/frontend_view/articles.html">Articles</a></li>
         <li><a href="/">Accueil</a></li>
+        <li><a href="view/frontend_view/articles.html">Articles</a></li>
         <li><a href="/galleryDisplay">Galerie</a></li>
+        {{#if user}}
+        <li id="deco"><a id="linkDeco" href="/users/logout">Déconnexion</a></li>
+        {{else}}
         <li id="connect"><a id="linkReg" class="js-modal" href="#modal2">Inscription</a></li>
         <li id="connect"><a id="linkCo" class="js-modal" href="#modal1">Connexion</a></li>
-        <li id="deco"><a id="linkDeco" href="">Déconnexion</a></li>
+        {{/if}}
         <li id="admin" class="drop-left">
         </li>
     </ul>

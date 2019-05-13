@@ -27,6 +27,12 @@ app.use(expressSession({
     )
 }));
 
+app.use('*', (req, res, next) => {
+    res.locals.user = req.session.userId;
+    console.log(res.locals.user);
+    next()
+})
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileupload());
@@ -45,7 +51,8 @@ const welcome = require('./controllers/welcome'),
 
     // Users
       userCreate = require('./controllers/userCreate'),
-      userLogin = require('./controllers/userLogin')
+      userLogin = require('./controllers/userLogin'),
+      userLogout = require('./controllers/userLogout')
 
 // ########################
 //         Routes       
@@ -59,6 +66,7 @@ app.get('/galleryDisplay', galleryDisplay)
     // Users
 app.post ('/users/add', userCreate)
 app.post('/users/login', userLogin )
+app.get('/users/logout', userLogout)
 
 // ########################
 //         Run App
