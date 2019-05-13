@@ -1,0 +1,20 @@
+<div>
+    {{#if messages.error}}
+    <div class="error">
+        {{#each messages.error}}
+        <ul>
+            <li>{{this}}</li>
+        </ul>
+        {{/each}}
+    </div>
+    {{/if}}
+    {{#if messages.success}}
+    <div class="success">
+        {{#each messages.success}}
+        <ul>
+            <li>{{this}}</li>
+        </ul>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>
