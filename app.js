@@ -8,9 +8,11 @@ const exphbs = require('express-handlebars'),
       expressSession = require('express-session'),
       MongoStore = require('connect-mongo'),
       flash = require('express-flash')
-      
 
-app.engine('.hbs', exphbs({ extname: '.hbs', defaultLayout: 'main' }));
+app.engine('.hbs', exphbs({ 
+    extname: '.hbs', 
+    defaultLayout: 'main' 
+}));
 app.set('view engine', '.hbs');
       
 const mongoStore = MongoStore(expressSession);
@@ -29,7 +31,7 @@ app.use(expressSession({
 
 app.use('*', (req, res, next) => {
     res.locals.user = req.session.userId;
-    console.log(res.locals.user);
+    // console.log(res.locals.user);
     next()
 })
 
@@ -39,6 +41,15 @@ app.use(fileupload());
 app.use(flash());
 
 app.use(express.static('public'));
+
+// ########################
+//       Middlewares    
+// ########################
+
+const auth = require('./middlewares/auth'),
+      testUserGroup = require('./middlewares/testUserGroup')
+
+// app.use('*', testUserGroup)
 
 // ########################
 //       Controllers    
@@ -59,14 +70,14 @@ const welcome = require('./controllers/welcome'),
 // ########################
 
     // Map
-app.get ('/', welcome)
+app.get ('/', testUserGroup, welcome)
 app.get ('/mediaOwnerMap', mediaOwnerMap)
 app.get('/galleryDisplay', galleryDisplay)
 
     // Users
 app.post ('/users/add', userCreate)
 app.post('/users/login', userLogin )
-app.get('/users/logout', userLogout)
+app.get('/users/logout',auth, userLogout)
 
 // ########################
 //         Run App

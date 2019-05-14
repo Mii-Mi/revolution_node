@@ -25,7 +25,8 @@
         <li id="connect"><a id="linkReg" class="js-modal" href="#modal2">Inscription</a></li>
         <li id="connect"><a id="linkCo" class="js-modal" href="#modal1">Connexion</a></li>
         {{/if}}
-        <li id="admin" class="drop-left">
-        </li>
+        {{#if admin}}
+        <li id="admin"><a href="">Administrer</a></li>
+        {{/if}}
     </ul>
 </nav>
