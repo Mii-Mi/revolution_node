@@ -49,7 +49,7 @@ app.use(express.static('public'));
 const auth = require('./middlewares/auth'),
       testUserGroup = require('./middlewares/testUserGroup')
 
-// app.use('*', testUserGroup)
+app.use('*', testUserGroup)
 
 // ########################
 //       Controllers    
@@ -63,14 +63,18 @@ const welcome = require('./controllers/welcome'),
     // Users
       userCreate = require('./controllers/userCreate'),
       userLogin = require('./controllers/userLogin'),
-      userLogout = require('./controllers/userLogout')
+      userLogout = require('./controllers/userLogout'),
+
+    // Medias
+      mediaAddForm = require('./controllers/backend/medias/mediaAddForm'),
+      mediaCreate = require('./controllers/backend/medias/mediaCreate')
 
 // ########################
 //         Routes       
 // ########################
 
     // Map
-app.get ('/', testUserGroup, welcome)
+app.get ('/', welcome)
 app.get ('/mediaOwnerMap', mediaOwnerMap)
 app.get('/galleryDisplay', galleryDisplay)
 
@@ -78,6 +82,10 @@ app.get('/galleryDisplay', galleryDisplay)
 app.post ('/users/add', userCreate)
 app.post('/users/login', userLogin )
 app.get('/users/logout',auth, userLogout)
+
+    // Medias
+app.get ('/medias/add', auth, mediaAddForm)
+app.post('/medias/create', auth, mediaCreate)
 
 // ########################
 //         Run App

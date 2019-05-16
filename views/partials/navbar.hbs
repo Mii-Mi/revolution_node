@@ -10,8 +10,6 @@
                 <li><a href="https://www.acrimed.org/">Acrimed</a></li>
                 <li><a href="https://www.bastamag.net/">Basta !</a></li>
                 <li><a href="http://lundi.am/">Lundi matin</a></li>
-                <li><a href="https://www.tvlibertes.com/">Tv Libertés</a></li>
-                <li><a href="https://www.egaliteetreconciliation.fr/">Égalité & réconciliation</a></li>
                 <li><a href="https://planetes360.fr/">Planètes 360</a></li>
             </ul>
         </li>
@@ -26,7 +24,13 @@
         <li id="connect"><a id="linkCo" class="js-modal" href="#modal1">Connexion</a></li>
         {{/if}}
         {{#if admin}}
-        <li id="admin"><a href="">Administrer</a></li>
+            <li id="adminMenu" class="dropdown"><a href="">Administrer</a>
+                <ul>
+                    <li><a href="/medias/add">Ajouter un media</a></li>
+                    <li><a href="#">Item</a></li>
+                    <li><a href="#">Item</a></li>
+                </ul>
+            </li>
         {{/if}}
     </ul>
 </nav>

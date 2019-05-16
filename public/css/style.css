@@ -235,6 +235,30 @@ article img, article figure img{
     margin: auto;
     max-width: 100%;
 }
+.adminButtonsCont {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.adminButtonsCont .button{
+    flex: 1;
+}
+
+    /* FORM PAGES
+    ################################# */
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    height: 75vh;
+    margin-top: 100px;
+}
+.formContainer .button {
+    display: inline-block;
+    padding: 5px 10px;
+}
 
 @media screen and (max-width: 1240px){
 
