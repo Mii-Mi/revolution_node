@@ -14,9 +14,11 @@ module.exports = (req, res, next) => {
             
             if (user.userGroup == 0) {
                 req.flash('data', 'admin')
-                res.locals.userGroup = user.userGroup
+                // res.locals.userGroup = user.userGroup
             } else if (user.userGroup == 1) {
                 req.flash('data', 'member')
+            }else{
+                req.flash('data', '')
             }
         }
         next()

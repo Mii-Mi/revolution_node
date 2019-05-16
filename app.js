@@ -49,7 +49,7 @@ app.use(express.static('public'));
 const auth = require('./middlewares/auth'),
       testUserGroup = require('./middlewares/testUserGroup')
 
-app.use('*', testUserGroup)
+app.use(testUserGroup)
 
 // ########################
 //       Controllers    
