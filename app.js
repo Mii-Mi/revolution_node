@@ -91,6 +91,6 @@ app.post('/medias/create', auth, mediaCreate)
 //         Run App
 // ########################
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log('Le serveur tourne sur le port 3000');
 });
