@@ -1,0 +1,17 @@
+<h1>Articles recents</h1>
+<section id="cont" class="galCont">
+    {{#each obj}}
+    <article class="bloc">
+        <a class="link-publi" href="{{this.link}}">
+            <h3 class="title-publi">{{this.title}}</h3>
+            <img class="img-publi" src="{{this.img}}" alt="logo" />
+        </a>
+        <p class="descr-publi">{{this.desc}}</p>
+        
+        <div class="social social-publi">
+            <p><a href="{{this.fb}}"><img src="../images/logos/facebook.png" alt="logo facebook" /></a></p>
+            <p><a href="{{this.tw}}"><img src="../images/logos/twitter.png" alt="logo twitter" /></a></p>
+        </div>
+    </article>
+    {{/each}}
+</section>

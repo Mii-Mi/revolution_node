@@ -243,6 +243,9 @@ article img, article figure img{
 .adminButtonsCont .button{
     flex: 1;
 }
+#cont{
+    margin-top: 80px;
+}
 
     /* FORM PAGES
     ################################# */

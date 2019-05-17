@@ -1,5 +1,5 @@
 <header>
-    <h1>Galerie</h1>
+    <h1>Medias libres</h1>
 </header>
 
 <section class="galCont">
@@ -18,8 +18,8 @@
                 <p><a href="{{twLink}}"><img src="images/logos/twitter.png"
                             alt="logo twitter" /></a></p>
             </div>
-            {{#if admin}}
-            <p class="adminButtonsCont"><a class="button" href="/medias/edit">Modifier</a><a class="button" href="/medias/delete">Supprimer</a></p>
+            {{#if ../admin}}
+            <div class="adminButtonsCont"><a class="button" href="/medias/edit/{{id}}">Modifier</a><a class="button" href="/medias/delete/{{id}}">Supprimer</a></div>
             {{/if}}
         </article>
     {{/each}}
