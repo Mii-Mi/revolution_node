@@ -5,7 +5,7 @@
 <section class="galCont">
     {{#each media}}
         <article class="bloc">
-            <a href="{{link}}">
+            <a href="{{link}}" target="_blank">
                 <figure>
                     <figcaption>{{title}}</figcaption>
                     <img src="{{image}}" alt="img là bas" />
@@ -13,9 +13,9 @@
             </a>
             <p>{{{content}}}</p>
             <div class="social">
-                <p><a href="{{fbLink}}"><img
+                <p><a href="{{fbLink}}" target="_blank"><img
                             src="images/logos/facebook.png" alt="logo facebook" /></a></p>
-                <p><a href="{{twLink}}"><img src="images/logos/twitter.png"
+                <p><a href="{{twLink}}" target="_blank"><img src="images/logos/twitter.png"
                             alt="logo twitter" /></a></p>
             </div>
             {{#if ../admin}}
