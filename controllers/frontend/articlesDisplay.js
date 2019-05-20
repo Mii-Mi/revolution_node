@@ -1,7 +1,7 @@
 module.exports = (req, res) => {
 
 
-    const obj = require('../public/js/result.json');
+    const obj = require('../../public/js/result.json');
     
     if (req.flash('data')[0] === 'admin') {
         const admin = true

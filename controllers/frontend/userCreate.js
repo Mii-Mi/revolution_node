@@ -1,7 +1,8 @@
-const User = require('../models/User');
+const User = require('../../models/User');
 
 module.exports = (req, res) => {
     if(req.body.pass === req.body.pass2){
+            req.body.userGroup = 1;
             User.create(
             req.body, (error, user) => {
 

@@ -17,7 +17,10 @@ app.set('view engine', '.hbs');
       
 const mongoStore = MongoStore(expressSession);
 
-mongoose.connect('mongodb://localhost:27017/revolution', { useNewUrlParser: true });
+mongoose.set('useNewUrlParser', true)
+mongoose.set('useFindAndModify', false)
+mongoose.set('useCreateIndex', true)
+mongoose.connect('mongodb://localhost:27017/revolution');
 
 app.use(expressSession({
     secret: 'securite',
@@ -46,26 +49,30 @@ app.use(express.static('public'));
 //       Middlewares    
 // ########################
 
+    // Users
 const auth = require('./middlewares/auth'),
       adminAuth = require('./middlewares/adminAuth'),
       testUserGroup = require('./middlewares/testUserGroup')
 
 app.use(testUserGroup)
 
+    // Posts
+const validForm = require('./middlewares/validForm')
+
 // ########################
 //       Controllers    
 // ########################
 
     // Map
-const welcome = require('./controllers/welcome'),
-      mediaOwnerMap = require('./controllers/mediaOwnerMap'),
-      galleryDisplay = require('./controllers/galleryDisplay'),
-      articlesDisplay =require('./controllers/articlesDisplay'),
+const welcome = require('./controllers/frontend/welcome'),
+      mediaOwnerMap = require('./controllers/frontend/mediaOwnerMap'),
+      galleryDisplay = require('./controllers/frontend/galleryDisplay'),
+      articlesDisplay =require('./controllers/frontend/articlesDisplay'),
 
     // Users
-      userCreate = require('./controllers/userCreate'),
-      userLogin = require('./controllers/userLogin'),
-      userLogout = require('./controllers/userLogout'),
+      userCreate = require('./controllers/frontend/userCreate'),
+      userLogin = require('./controllers/frontend/userLogin'),
+      userLogout = require('./controllers/frontend/userLogout'),
 
     // Medias
       mediaAddForm = require('./controllers/backend/medias/mediaAddForm'),
@@ -91,9 +98,9 @@ app.get('/users/logout',auth, userLogout)
 
     // Medias
 app.get ('/medias/add', adminAuth, mediaAddForm)
-app.post('/medias/create', adminAuth, mediaCreate)
+app.post('/medias/create', adminAuth, validForm, mediaCreate)
 app.get('/medias/edit/:id', adminAuth, mediaEdit)
-app.post('/medias/update', adminAuth, mediaUpdate)
+app.post('/medias/update', adminAuth, validForm, mediaUpdate)
 app.get('/medias/delete/:id', adminAuth, mediaDelete)
 
 // ########################
@@ -101,5 +108,5 @@ app.get('/medias/delete/:id', adminAuth, mediaDelete)
 // ########################
 
 app.listen(3001, () => {
-    console.log('Le serveur tourne sur le port 3000');
+    console.log('Le serveur tourne sur le port 3001');
 });
