@@ -68,18 +68,25 @@ const welcome = require('./controllers/frontend/welcome'),
       mediaOwnerMap = require('./controllers/frontend/mediaOwnerMap'),
       galleryDisplay = require('./controllers/frontend/galleryDisplay'),
       articlesDisplay =require('./controllers/frontend/articlesDisplay'),
+      userProfile = require('./controllers/frontend/userProfile'),
 
     // Users
       userCreate = require('./controllers/frontend/userCreate'),
       userLogin = require('./controllers/frontend/userLogin'),
       userLogout = require('./controllers/frontend/userLogout'),
+      adminAdd = require('./controllers/backend/users/adminAdd'),
+      adminDelete = require('./controllers/backend/users/adminDelete'),
 
     // Medias
       mediaAddForm = require('./controllers/backend/medias/mediaAddForm'),
       mediaCreate = require('./controllers/backend/medias/mediaCreate'),
       mediaEdit = require('./controllers/backend/medias/mediaEdit'),
       mediaUpdate =  require('./controllers/backend/medias/mediaUpdate'),
-      mediaDelete = require('./controllers/backend/medias/mediaDelete')
+      mediaDelete = require('./controllers/backend/medias/mediaDelete'),
+
+    // Articles
+      articlesAdd = require('./controllers/frontend/articleAdd'),
+      articleCreate = require('./controllers/frontend/articleCreate')
 
 // ########################
 //         Routes       
@@ -90,11 +97,14 @@ app.get ('/', welcome)
 app.get ('/mediaOwnerMap', mediaOwnerMap)
 app.get('/galleryDisplay', galleryDisplay)
 app.get('/articles/display', articlesDisplay)
+app.get('/userProfile/:userId',auth, userProfile)
 
     // Users
 app.post ('/users/add', userCreate)
 app.post('/users/login', userLogin )
 app.get('/users/logout',auth, userLogout)
+app.get('/admins/add/:userId', adminAuth, adminAdd)
+app.get('/admins/delete/:userId', adminAuth, adminDelete)
 
     // Medias
 app.get ('/medias/add', adminAuth, mediaAddForm)
@@ -102,6 +112,11 @@ app.post('/medias/create', adminAuth, validForm, mediaCreate)
 app.get('/medias/edit/:id', adminAuth, mediaEdit)
 app.post('/medias/update', adminAuth, validForm, mediaUpdate)
 app.get('/medias/delete/:id', adminAuth, mediaDelete)
+
+    // Articles
+app.get('/articles/add', auth, articlesAdd)
+app.post('/articles/create', auth, articleCreate)
+
 
 // ########################
 //         Run App

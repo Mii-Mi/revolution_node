@@ -10,9 +10,9 @@ module.exports = (req, res) => {
                 if (same) {
                     req.session.userId = user._id
                     req.flash('success', 'Connexion réussie !');
-                    res.redirect('/')
+                    res.redirect(`/userProfile/${user._id}`)
                 } else {
-                    req.flash('error', 'Échec de la connexion (mdp). Veuillez essayer à nouveau ...');
+                    req.flash('error', 'Échec de la connexion. Veuillez essayer à nouveau ...');
                     res.redirect('/');
                 }
             })

@@ -1,17 +1,32 @@
+const Users = require('../../models/User'),
+      Articles = require('../../models/Articles')
+
 module.exports = (req, res) => {
+    let group = req.flash('data')[0],
+        isOwner = false
 
+    Users.find( async (error, user) => {
+        // console.log(req.flash('data')[0]);
+        if (error) {
+            console.log(error);
+        }
 
-    const obj = require('../../public/js/result.json');
-    
-    if (req.flash('data')[0] === 'admin') {
-        const admin = true
-        console.log(admin);
-        res.render('frontendView/articles', { obj, admin });
-    } else if (req.flash('data')[0] === 'member') {
-        const member = true
-        console.log(member);
-        res.render('frontendView/articles', { obj, member });
-    } else {
-        res.render('frontendView/articles', { obj });
-    }
+        if (req.session.userId === req.params.userId) {
+            isOwner = true
+        }
+
+        const article = await Articles.find({})
+        console.log(article);
+
+        if (group === 'admin') {
+            const admin = true
+            res.render('frontendView/articles', { user, isOwner, admin, article })
+        } else if (group === 'member') {
+            const member = true
+            res.render('frontendView/articles', { user, isOwner, member, article })
+        } else {
+            console.log(group);
+            res.render('index');
+        }
+    })
 }

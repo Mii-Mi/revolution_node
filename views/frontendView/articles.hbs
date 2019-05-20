@@ -1,17 +1,21 @@
 <h1>Articles recents</h1>
-<section id="cont" class="galCont">
-    {{#each obj}}
+<section>
+    {{#if article}}
+    <section>
+        {{#each article}}
+        <article class="bloc blocList">
+            <h3>{{title}}</h3>
+            <p>{{{content}}}</p>
+            {{#if ../isOwner}}
+            <div class="adminButtonsCont"><a class="button" href="/articles/edit/{{id}}">Modifier</a><a class="button"
+                    href="/medias/delete/{{id}}">Supprimer</a></div>
+            {{/if}}
+        </article>
+        {{/each}}
+    </section>
+    {{else}}
     <article class="bloc">
-        <a class="link-publi" href="{{this.link}}" target="_blank">
-            <h3 class="title-publi">{{this.title}}</h3>
-            <img class="img-publi" src="{{this.img}}" alt="logo" />
-        </a>
-        <p class="descr-publi">{{this.desc}}</p>
-        
-        <div class="social social-publi">
-            <p><a href="{{this.fb}}" target="_blank"><img src="../images/logos/facebook.png" alt="logo facebook" /></a></p>
-            <p><a href="{{this.tw}}" target="_blank"><img src="../images/logos/twitter.png" alt="logo twitter" /></a></p>
-        </div>
+        <p>{{user.userName}} n'a pas encore publé d'article ...</p>
     </article>
-    {{/each}}
+    {{/if}}
 </section>
