@@ -2,9 +2,9 @@ const User = require('../../models/User'),
       Articles = require('../../models/Articles');
 
 module.exports = (req, res) => {
-    User.findById(req.session.userId, async (error, user) => {
+    User.findById(req.session.userId, async (error, usr) => {
 
         const article = await Articles.findById(req.params.articleId);
-        res.render('frontendView/articles/edit', { article, user })
+        res.render('frontendView/articles/edit', { article })
     })
 }

@@ -6,7 +6,7 @@ module.exports = (req, res) => {
         userIsAdmin = false,
         isOwner = false
 
-    Users.findById(req.params.userId, async (error, user) => {
+    Users.findById(req.params.userId, async (error, usr) => {
         // console.log(req.flash('data')[0]);
         if(error) {
             console.log(error);
@@ -16,19 +16,19 @@ module.exports = (req, res) => {
             isOwner = true
         }
 
-        if (user.userGroup == 0){
+        if (usr.userGroup == 0){
             userIsAdmin = true
         }
 
         
-        const article = await Articles.find({author: user.userName})
+        const article = await Articles.find({author: usr.userName})
         
         if (group === 'admin') {
             const admin = true
-            res.render('frontendView/userProfile', { user, isOwner, admin, userIsAdmin, article })
+            res.render('frontendView/userProfile', { usr, isOwner, admin, userIsAdmin, article })
         } else if (group === 'member') {
             const member = true
-            res.render('frontendView/userProfile', { user, isOwner, member, userIsAdmin, article })
+            res.render('frontendView/userProfile', { usr, isOwner, member, userIsAdmin, article })
         } else {
             console.log(group);
             res.render('index');

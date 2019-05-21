@@ -34,7 +34,7 @@ app.use(expressSession({
 
 app.use('*', (req, res, next) => {
     res.locals.user = req.session.userId;
-    // console.log(res.locals.user);
+    // console.log(req.session);
     next()
 })
 

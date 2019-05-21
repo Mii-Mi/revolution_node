@@ -1,12 +1,12 @@
 <h1>Page perso</h1>
 
 <header>
-    <h2>(Profil de {{user.userName}})</h2>
+    <h2>(Profil de {{usr.userName}})</h2>
     {{#if admin}}
         {{#if userIsAdmin}}
-        <p><a class="button" href="/admins/delete/{{user._id}}">Révoquer des admins</a></p>
+        <p><a class="button" href="/admins/delete/{{usr._id}}">Révoquer des admins</a></p>
         {{else}}
-        <p><a class="button" href="/admins/add/{{user._id}}">Définir en tant qu'admin</a></p>
+        <p><a class="button" href="/admins/add/{{usr._id}}">Définir en tant qu'admin</a></p>
         {{/if}}
     {{/if}}
 
@@ -42,6 +42,6 @@
 </section>
 {{else}}
 <article class="bloc">
-    <p>{{user.userName}} n'a pas encore publé d'article ...</p>
+    <p>{{usr.userName}} n'a pas encore publié d'article ...</p>
 </article>
 {{/if}}
