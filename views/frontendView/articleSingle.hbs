@@ -8,7 +8,6 @@
             <a class="button" href="/article/edit/{{article._id}}">Modifier</a>
             <a class="button" href="/article/delete/{{article._id}}">Supprimer</a>
         </div>
-        
         {{else}}
             {{#if admin}}
             <div class="adminButtonsCont">
@@ -19,3 +18,57 @@
         {{/if}}
     </div>
 </section>
+<div class="comCont">
+    <div class="comColumn">
+        <section>
+            {{#each comment}}
+            <article class="comEl">
+                <div class="bloc">
+                    <p class="comHead">Publié par <a href="/userProfile/{{authorId}}">{{author}}</a></p>
+                    <p>{{{content}}}</p>
+                    {{#if ../isOwner}}
+                    <div class="adminButtonsCont">
+                        <a class="button" href="/comment/edit/{{_id}}">Modifier</a>
+                        <a class="button" href="/comment/delete/{{_id}}">Supprimer</a>
+                    </div>
+                
+                    {{else}}
+                    {{#if ../admin}}
+                    <div class="adminButtonsCont">
+                        <a class="button" href="/comment/edit/{{_id}}">Modifier</a>
+                        <a class="button" href="/comment/delete/{{_id}}">Supprimer</a>
+                    </div>
+                    {{/if}}
+                    {{/if}}
+                </div>
+            </article>
+            {{/each}}
+        </section>
+        {{#if user}}
+        <section class="formContainer bloc">
+            <form action="/comments/add/{{article._id}}" method="POST" enctype="multipart/form-data">
+                <p>
+                    <label for="content"><h3>Votre commentaire</h3></label>
+                    <textarea class="textarea" name="content"></textarea>
+                    <script>
+                        CKEDITOR.replace(
+                            ('content'));
+                        CKEDITOR.config.entities = false;
+                        CKEDITOR.config.entities_latin = false;
+                    </script>
+                </p>
+                <p>
+                    <input class="button" type="submit" value="Envoyer" />
+                    <a href="/">Annuler</a>
+                </p>
+            </form>
+        </section>
+        {{else}}
+        <p class="bloc"><strong>Connectez-vous pour écrire un commentaire !</strong></p>
+        {{/if}}
+    </div>
+    
+    <div id="lisere">
+        <p> </p>
+    </div>
+</div>

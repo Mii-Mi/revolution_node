@@ -1,22 +1,19 @@
 const mongoose = require('mongoose');
 
-const ArticlesSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: [true, 'Le champ "titre" est requis.']
-    },
+const CommentsSchema = new mongoose.Schema({
     content: {
         type: String,
         required: [true, 'Le champ "contenu" est requis.']
     },
     author: String,
     authorId: String,
+    articleId: String,
     createDate: {
         type: Date,
         default: new Date()
     }
 })
 
-const Articles = mongoose.model('Articles', ArticlesSchema);
+const Comments = mongoose.model('Comments', CommentsSchema);
 
-module.exports = Articles;
+module.exports = Comments;

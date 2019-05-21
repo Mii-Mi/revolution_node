@@ -90,7 +90,10 @@ const welcome = require('./controllers/frontend/welcome'),
       articleSingle = require('./controllers/frontend/articleSingle'),
       articleEdit = require('./controllers/frontend/articleEdit'),
       articleUpdate = require('./controllers/frontend/articleUpdate'),
-      articleDelete = require('./controllers/frontend/articleDelete')
+      articleDelete = require('./controllers/frontend/articleDelete'),
+
+    // Comments
+      commentAdd = require('./controllers/frontend/commentAdd')
 
 // ########################
 //         Routes       
@@ -101,7 +104,7 @@ app.get ('/', welcome)
 app.get ('/mediaOwnerMap', mediaOwnerMap)
 app.get('/galleryDisplay', galleryDisplay)
 app.get('/articles/display', articlesDisplay)
-app.get('/userProfile/:userId',auth, userProfile)
+app.get('/userProfile/:userId', userProfile)
 
     // Users
 app.post ('/users/add', userCreate)
@@ -124,6 +127,9 @@ app.get('/article/:articleId', articleSingle)
 app.get('/article/edit/:articleId', auth, articleEdit)
 app.post('/article/update/:articleId', auth, articleUpdate)
 app.get('/article/delete/:articleId', auth, articleDelete)
+
+    // Comments
+app.post('/comments/add/:articleId', auth, commentAdd)
 
 
 // ########################

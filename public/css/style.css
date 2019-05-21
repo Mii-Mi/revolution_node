@@ -278,6 +278,40 @@ article img, article figure img{
     padding: 5px 10px;
 }
 
+/* COMMENTS
+################################# */
+
+.comCont{
+    display: flex;
+}
+.comColumn{
+    margin-top: 15px;
+    height: auto;
+    width: 100%;
+}
+.comColumn .formContainer {
+    height: auto;
+    margin: auto;
+}
+.comColumn .formContainer form{
+    margin-top: 0;
+    width: 100%;
+}
+.comEl{
+    border-top: 1px solid rgb(228, 228, 0);
+    margin-bottom: 15px;
+}
+.comHead{
+    border-bottom: 1px solid rgb(228, 228, 0);
+}
+
+#lisere {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 10%;
+    margin-right: 15px;
+    order: -1;
+}
+
 @media screen and (max-width: 1240px){
 
     /*GALLERY

@@ -3,24 +3,18 @@
 <header>
     <h2>(Profil de {{user.userName}})</h2>
     {{#if admin}}
-    <div class="bloc">
         {{#if userIsAdmin}}
         <p><a class="button" href="/admins/delete/{{user._id}}">Révoquer des admins</a></p>
         {{else}}
         <p><a class="button" href="/admins/add/{{user._id}}">Définir en tant qu'admin</a></p>
         {{/if}}
-    </div>
     {{/if}}
 
     {{#if isOwner}}
-    <div class="bloc">
-        <a class="button" href="/articles/add">ajouter un article</a>
+    <a class="button" href="/articles/add">ajouter un article</a>
     <p>Ceci est ma page perso !</p>
-    </div>
     {{else}}
-    <div class="bloc">
-        <p>Ce n'est pas ma page perso ...</p>
-    </div>
+    <p>Ce n'est pas ma page perso ...</p>
     {{/if}}
 </header>
 
@@ -28,11 +22,20 @@
 <section class="galCont">
     {{#each article}}
     <article class="bloc" id="{{_id}}">
-        <h3>{{title}}</h3>
+        <h2><a href="/article/{{_id}}">{{title}}</a></h2>
         <p>{{{content}}}</p>
         {{#if ../isOwner}}
-        <div class="adminButtonsCont"><a class="button" href="/articles/edit/{{id}}">Modifier</a><a class="button"
-                href="/medias/delete/{{id}}">Supprimer</a></div>
+        <div class="adminButtonsCont">
+            <a class="button" href="/article/edit/{{id}}">Modifier</a>
+            <a class="button" href="/article/delete/{{id}}">Supprimer</a>
+        </div>
+        {{else}}
+            {{#if ../admin}}
+            <div class="adminButtonsCont">
+                <a class="button" href="/article/edit/{{id}}">Modifier</a>
+                <a class="button" href="/article/delete/{{id}}">Supprimer</a>
+            </div>
+            {{/if}}
         {{/if}}
     </article>
     {{/each}}

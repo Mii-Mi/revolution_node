@@ -1,4 +1,4 @@
-const Articles = require('../../models/Articles'),
+const Comments = require('../../models/Comments'),
       Users = require('../../models/User')
 
 module.exports = (req, res) => {
@@ -8,19 +8,20 @@ module.exports = (req, res) => {
         if (error) {
             console.log(error);
         }
-        
-        Articles.create(
+
+        Comments.create(
             {
                 ...req.body,
                 author: user.userName,
-                authorId: user._id
+                authorId: user._id,
+                articleId: req.params.articleId
             },
             (error, post) => {
                 if (error) {
                     console.log(error);
-                    req.flash('error', 'Erreur lors de la création de l\'article');
+                    req.flash('error', 'Erreur lors de la création du commentaire');
                 } else {
-                    req.flash('success', 'Article créé avec succes !');
+                    req.flash('success', 'Commentaire créé avec succes !');
                 }
                 res.redirect(`/userProfile/${req.session.userId}`)
             })

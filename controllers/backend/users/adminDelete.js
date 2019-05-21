@@ -17,7 +17,7 @@ module.exports = (req, res) => {
                 req.flash('error', 'La modification a échoué, veuillez réessayer.')
                 console.log(error);
             } else {
-                req.flash('success', 'Félicitations ! Vous êtes fâché à vie avec l\'utilisateur !')
+                req.flash('success', `Félicitations ! Vous êtes fâché à vie avec ${user.userName} !`)
             }
 
             return res.redirect(`/userProfile/${req.params.userId}`)

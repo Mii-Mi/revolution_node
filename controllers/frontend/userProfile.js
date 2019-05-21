@@ -22,7 +22,6 @@ module.exports = (req, res) => {
 
         
         const article = await Articles.find({author: user.userName})
-        console.log(article);
         
         if (group === 'admin') {
             const admin = true
