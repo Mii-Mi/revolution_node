@@ -4,12 +4,9 @@
     <section>
         {{#each article}}
         <article class="bloc blocList">
-            <h3>{{title}}</h3>
+            <h2><a href="/article/{{_id}}">{{title}}</a></h2>
             <p>{{{content}}}</p>
-            {{#if ../isOwner}}
-            <div class="adminButtonsCont"><a class="button" href="/articles/edit/{{id}}">Modifier</a><a class="button"
-                    href="/medias/delete/{{id}}">Supprimer</a></div>
-            {{/if}}
+            <p>Par <a href="/userProfile/{{authorId}}">{{author}}</a></p>
         </article>
         {{/each}}
     </section>

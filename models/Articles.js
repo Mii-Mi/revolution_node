@@ -9,7 +9,8 @@ const ArticlesSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Le champ "contenu" est requis.']
     },
-    author: String
+    author: String,
+    authorId: String
 })
 
 const Articles = mongoose.model('Articles', ArticlesSchema);

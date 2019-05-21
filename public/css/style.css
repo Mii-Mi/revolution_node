@@ -124,6 +124,7 @@ h2{
 }
 h3{
     text-decoration: underline;
+    font-size: 1.5em;
 }
 a{
     text-decoration: none;
@@ -247,12 +248,18 @@ article img, article figure img{
     margin-top: 80px;
 }
 
-/*GALLERY
+/*ARTICLES
 ################################# */
 
+/* List */
 .blocList{
     border-bottom: 1px solid rgb(228, 228, 0);
     margin-bottom: 10px;
+}
+
+/* Single */
+.articleSection{
+    margin-top: 60px;
 }
 
 /* FORM PAGES

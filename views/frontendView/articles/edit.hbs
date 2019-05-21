@@ -1,0 +1,22 @@
+<section class="formContainer bloc">
+    <form action="/article/update/{{article._id}}" method="POST" enctype="multipart/form-data">
+        <p>
+            <label class="label">Titre de l'article :</label>
+            <input class="input" type="text" name="title" value="{{article.title}}">
+        </p>
+        <p>
+            <label for="content">Contenu :</label>
+            <textarea class="textarea" name="content">{{{article.content}}}</textarea>
+            <script>
+                CKEDITOR.replace(
+                    ('content'));
+                CKEDITOR.config.entities = false;
+                CKEDITOR.config.entities_latin = false;
+            </script>
+        </p>
+        <p>
+            <input class="button" type="submit" value="Envoyer" />
+            <a href="/">Annuler</a>
+        </p>
+    </form>
+</section>

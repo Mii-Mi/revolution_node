@@ -11,22 +11,19 @@ module.exports = (req, res) => {
             console.log(error);
         }
 
-        if (req.session.userId === req.params.userId) {
-            isOwner = true
-        }
-
-        const article = await Articles.find({})
-        console.log(article);
+        
+        const article = await Articles.find({}).sort({ _id: -1 })
 
         if (group === 'admin') {
             const admin = true
-            res.render('frontendView/articles', { user, isOwner, admin, article })
+            
+            res.render('frontendView/articles', { user, admin, article })
         } else if (group === 'member') {
             const member = true
-            res.render('frontendView/articles', { user, isOwner, member, article })
+            res.render('frontendView/articles', { user, member, article })
         } else {
             console.log(group);
-            res.render('index');
+            res.render('frontendView/articles', { article });
         }
     })
 }

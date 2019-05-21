@@ -13,7 +13,8 @@ module.exports = (req, res) => {
         Articles.create(
             {
                 ...req.body,
-                author: user.userName
+                author: user.userName,
+                authorId: user._id
             },
             (error, post) => {
                 if (error) {

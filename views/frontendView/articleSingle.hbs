@@ -1,0 +1,21 @@
+<section class="articleSection">
+    <h2>{{article.title}}</h2>
+    <div class="bloc">
+        <p>{{{article.content}}}</p>
+        <p>Publié par <a href="/userProfile/{{article.authorId}}">{{article.author}}</a></p>
+        {{#if isOwner}}
+        <div class="adminButtonsCont">
+            <a class="button" href="/article/edit/{{article._id}}">Modifier</a>
+            <a class="button" href="/article/delete/{{article._id}}">Supprimer</a>
+        </div>
+        
+        {{else}}
+            {{#if admin}}
+            <div class="adminButtonsCont">
+                <a class="button" href="/article/edit/{{article._id}}">Modifier</a>
+                <a class="button" href="/article/delete/{{article._id}}">Supprimer</a>
+            </div>
+            {{/if}}
+        {{/if}}
+    </div>
+</section>
