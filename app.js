@@ -54,7 +54,7 @@ const auth = require('./middlewares/auth'),
       adminAuth = require('./middlewares/adminAuth'),
       testUserGroup = require('./middlewares/testUserGroup')
 
-app.use(testUserGroup)
+app.use('*', testUserGroup)
 
     // Posts
 const validForm = require('./middlewares/validForm')
@@ -93,7 +93,9 @@ const welcome = require('./controllers/frontend/welcome'),
       articleDelete = require('./controllers/frontend/articleDelete'),
 
     // Comments
-      commentAdd = require('./controllers/frontend/commentAdd')
+      commentAdd = require('./controllers/frontend/commentAdd'),
+      commentEdit = require('./controllers/frontend/commentEdit'),
+      commentUpdate = require('./controllers/frontend/commentUpdate')
 
 // ########################
 //         Routes       
@@ -130,6 +132,8 @@ app.get('/article/delete/:articleId', auth, articleDelete)
 
     // Comments
 app.post('/comments/add/:articleId', auth, commentAdd)
+app.get('/comment/edit/:commentId', auth, commentEdit)
+app.post('/comment/update/:commentId', auth, commentUpdate)
 
 
 // ########################

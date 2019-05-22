@@ -2,8 +2,7 @@ const Users = require('../../models/User'),
       Articles = require('../../models/Articles')
 
 module.exports = (req, res) => {
-    let group = req.flash('data')[0],
-        isOwner = false
+    let group = req.flash('data')[0]
 
     Users.find( async (error, usr) => {
         // console.log(req.flash('data')[0]);
@@ -11,7 +10,6 @@ module.exports = (req, res) => {
             console.log(error);
         }
 
-        
         const article = await Articles.find({}).sort({ _id: -1 })
 
         if (group === 'admin') {

@@ -22,11 +22,11 @@
     <div class="comColumn">
         <section>
             {{#each comment}}
-            <article class="comEl">
+            <article class="comEl" id="{{_id}}">
                 <div class="bloc">
                     <p class="comHead">Publié par <a href="/userProfile/{{authorId}}">{{author}}</a></p>
                     <p>{{{content}}}</p>
-                    {{#if ../isOwner}}
+                    {{#if ../isCommentOwner}}
                     <div class="adminButtonsCont">
                         <a class="button" href="/comment/edit/{{_id}}">Modifier</a>
                         <a class="button" href="/comment/delete/{{_id}}">Supprimer</a>

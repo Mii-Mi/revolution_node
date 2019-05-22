@@ -3,23 +3,46 @@ const Articles = require('../../models/Articles'),
 
 module.exports = async (req, res) => {
     
-    const article = await Articles.findById(req.params.articleId);
-    let isOwner = false
+    let isOwner = false,
+        group = req.flash('data')[0],
+        isCommentOwner = false
 
-    const comment = await Comments.find({articleId: article._id})
+    Articles.findById(req.params.articleId, async (error, article) => {
+        if(error){
+            console.log(error);
+        }
+        
+        if (article.authorId === req.session.userId){
+            isOwner = true;
+        }
+        
+        await Comments.find({articleId: article._id}, (error, comment) => {
+            console.log(comment);
+            
+            if (comment.authorId === req.session.userId){
+                isCommentOwner = true
+            }
 
-    if (article.authorId === req.session.userId){
-        isOwner = true;
-    }
-    console.log(isOwner);
 
-    if (req.flash('data')[0] == 'admin') {
-        const admin = true
-        res.render('frontendView/articleSingle', { admin, isOwner, article, comment });
-    } else if (req.flash('data')[0] == 'member') {
-        const member = true
-        res.render('frontendView/articleSingle', { member, isOwner, article, comment });
-    } else {
-        res.render('frontendView/articleSingle', { article, comment });
-    }
+            if (group == 'admin') {
+                const admin = true
+                return res.render('frontendView/articleSingle', { admin, isOwner, isCommentOwner, article, comment });
+                
+            } else if (group == 'member') {
+                const member = true
+                return res.render('frontendView/articleSingle', { member, isOwner, isCommentOwner, article, comment });
+                
+            } else {
+                return res.render('frontendView/articleSingle', { article, comment });
+            }
+
+        })
+    });
+
+    
+
+
+    
+    
+    
 }
