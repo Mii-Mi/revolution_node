@@ -16,14 +16,14 @@ module.exports = (req, res) => {
                 authorId: user._id,
                 articleId: req.params.articleId
             },
-            (error, post) => {
+            (error, comment) => {
                 if (error) {
                     console.log(error);
                     req.flash('error', 'Erreur lors de la création du commentaire');
                 } else {
                     req.flash('success', 'Commentaire créé avec succes !');
                 }
-                res.redirect(`/userProfile/${req.session.userId}`)
+                res.redirect(`/article/${comment.articleId}#${comment._id}`)
             })
 
     })
