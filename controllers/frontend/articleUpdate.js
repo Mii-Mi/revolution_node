@@ -10,8 +10,7 @@ module.exports = (req, res) => {
         {
             ...req.body,
         },
-        { useFindAndModify: false },
-        (error, media) => {
+        (error, article) => {
             if (error) {
                 req.flash('error', 'La modification a échoué, veuillez réessayer.')
                 console.log(error);

@@ -134,6 +134,9 @@ a:hover{
     color: rgb(228, 228, 0);
     text-shadow: 0 0 2px lightgoldenrodyellow;
 }
+img{
+    max-width: 100%;
+}
 .bloc{
     background-color: rgba(0, 0, 0, 0.7);
     padding: 1em;
@@ -162,6 +165,12 @@ a:hover{
     box-shadow: 0 0 5px black;
     color: unset;
     text-shadow: unset;
+}
+.button.danger{
+    border: 1px solid rgb(228, 1, 1);
+}
+.button.danger:hover{
+    background-color: rgba(36, 0, 0, 0.7);
 }
 footer{
     display: flex;
@@ -310,6 +319,32 @@ article img, article figure img{
     width: 10%;
     margin-right: 15px;
     order: -1;
+}
+/* USER PROFILE
+################################# */
+
+.profileAdminButtonsCont{
+    display: flex;
+    justify-content: space-between;
+}
+.profileAdminButtonsCont p{
+    flex: 1;
+}
+
+/* ADMIN BACKEND
+################################# */
+
+.memberTable{
+    border: 1px solid rgb(228, 228, 0);
+    border-collapse:collapse;
+    width: 95%;
+    margin: auto;
+}
+.memberTable tr td,
+.memberTable tr th {
+    border: 1px solid rgb(228, 228, 0);
+    text-align: center;
+    padding: 10px;
 }
 
 @media screen and (max-width: 1240px){

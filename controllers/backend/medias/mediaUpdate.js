@@ -18,7 +18,6 @@ module.exports = (req, res) => {
                 ...req.body,
                 image: `/images/logos/${image.name}`
             },
-            { useFindAndModify: false },
             (error, media) => {
                 if(error){
                     req.flash('error', 'La modification a échoué, veuillez réessayer.')

@@ -2,20 +2,25 @@
 
 <header>
     <h2>(Profil de {{usr.userName}})</h2>
-    {{#if admin}}
-        {{#if userIsAdmin}}
-        <p><a class="button" href="/admins/delete/{{usr._id}}">Révoquer des admins</a></p>
-        {{else}}
-        <p><a class="button" href="/admins/add/{{usr._id}}">Définir en tant qu'admin</a></p>
-        {{/if}}
-    {{/if}}
+    <div class="profileAdminButtonsCont">
 
     {{#if isOwner}}
-    <a class="button" href="/articles/add">ajouter un article</a>
-    <p>Ceci est ma page perso !</p>
+        <p><a class="button" href="/articles/add">ajouter un article</a></p>
     {{else}}
-    <p>Ce n'est pas ma page perso ...</p>
+        {{#if admin}}
+            {{#if userIsBanned}}
+            <p><a class="button danger" href="/members/unban/{{usr._id}}">Amnistier</a></p>
+            {{else}}
+            <p><a class="button danger" href="/members/ban/{{usr._id}}">Bannir</a></p>
+                {{#if userIsAdmin}}
+                <p><a class="button" href="/admins/delete/{{usr._id}}">Révoquer des admins</a></p>
+                {{else}}
+                <p><a class="button" href="/admins/add/{{usr._id}}">Définir en tant qu'admin</a></p>
+                {{/if}}
+            {{/if}}
+        {{/if}}
     {{/if}}
+    </div>
 </header>
 
 {{#if article}}
@@ -23,7 +28,7 @@
     {{#each article}}
     <article class="bloc" id="{{_id}}">
         <h2><a href="/article/{{_id}}">{{title}}</a></h2>
-        <p>{{{content}}}</p>
+        {{{content}}}
         {{#if ../isOwner}}
         <div class="adminButtonsCont">
             <a class="button" href="/article/edit/{{id}}">Modifier</a>

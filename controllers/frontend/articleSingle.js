@@ -4,8 +4,7 @@ const Articles = require('../../models/Articles'),
 module.exports = async (req, res) => {
     
     let isOwner = false,
-        group = req.flash('data')[0],
-        isCommentOwner = false
+        group = req.flash('data')[0]
 
     Articles.findById(req.params.articleId, async (error, article) => {
         if(error){

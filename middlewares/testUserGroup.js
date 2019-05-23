@@ -8,10 +8,14 @@ module.exports = (req, res, next) => {
         }
         
         if(user){
-            if (user.userGroup == 0) {
+            if (user.userGroup === 0) {
                 req.flash('data', 'admin')
-            } else if (user.userGroup == 1) {
-                req.flash('data', 'member')
+            } else if (user.userGroup === 1) {
+                req.flash('data', 'member', )
+            }else if (user.userGroup === 3){
+                delete req.session.userId
+                req.flash('error', 'Il semblerait que vous soyez banni, Veuillez contacter un administrateur !')
+                return res.redirect('/')
             }else{
                 req.flash('data', '')
             }

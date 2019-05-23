@@ -4,6 +4,7 @@ const Users = require('../../models/User'),
 module.exports = (req, res) => {
     let group = req.flash('data')[0],
         userIsAdmin = false,
+        userIsBanned = false
         isOwner = false
 
     Users.findById(req.params.userId, async (error, usr) => {
@@ -18,6 +19,8 @@ module.exports = (req, res) => {
 
         if (usr.userGroup == 0){
             userIsAdmin = true
+        }else if (usr.userGroup === 3){
+            userIsBanned = true
         }
 
         
@@ -25,13 +28,12 @@ module.exports = (req, res) => {
         
         if (group === 'admin') {
             const admin = true
-            res.render('frontendView/userProfile', { usr, isOwner, admin, userIsAdmin, article })
+            res.render('frontendView/userProfile', { usr, isOwner, admin, userIsAdmin, userIsBanned, article })
         } else if (group === 'member') {
             const member = true
             res.render('frontendView/userProfile', { usr, isOwner, member, userIsAdmin, article })
         } else {
-            console.log(group);
-            res.render('index');
+            res.render('frontendView/userProfile', { article });
         }
     })
 }
