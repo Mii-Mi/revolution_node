@@ -1,9 +1,39 @@
 <h1>Page perso</h1>
 
 <header>
-    <h2>(Profil de {{usr.userName}})</h2>
-    <div class="profileAdminButtonsCont">
+    <h2>(Le profil de {{usr.userName}})</h2>
 
+    <div class="profileCont bloc">
+        <aside>
+            <p><img {{#if avatar}}src=""{{else}}src="/images/avatars/default.png"{{/if}} alt="avatar" class="avatar"></p>
+            <h4>Statut</h4>
+            <p>{{#if userIsAdmin}}Admin{{else}}{{#if userIsBanned}}Banni{{else}}Membre{{/if}}{{/if}}</p>
+        </aside>
+        <section class="profileInfoCont">
+            {{#if isOwner}}
+            <p class="profileUpdtBut"><a class="button" href="/users/profile/edit/{{usr._id}}">modifier mon profil</a></p>
+            {{else}}{{#if admin}}
+            <p class="profileUpdtBut"><a class="button" href="/users/profile/edit/{{usr._id}}">modifier le profil de {{usr.userName}}</a></p>
+            {{/if}}{{/if}}
+            <div class="mood">
+                <h4>Billet d'humeur</h4>
+                <p>
+                    Colportées et serinées dans toute la colonie, désirait que les officiers de sa maison à trois étages, embelli seulement
+                    par des joueurs de dés !<br />Lancé trop fort, ça peut tuer.
+                </p>
+            </div>
+            <div class="profileInfo">
+                <p>item</p>
+                <p>item</p>
+                <div class="social">
+                    <p><a href="" target="_blank"><img src="/images/logos/facebook.png" alt="logo facebook" /></a></p>
+                    <p><a href="" target="_blank"><img src="/images/logos/twitter.png" alt="logo twitter" /></a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="profileAdminButtonsCont">
     {{#if isOwner}}
         <p><a class="button" href="/articles/add">ajouter un article</a></p>
     {{else}}
@@ -22,6 +52,8 @@
     {{/if}}
     </div>
 </header>
+
+<h2>(Les articles de {{usr.userName}})</h2>
 
 {{#if article}}
 <section class="galCont">

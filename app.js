@@ -73,6 +73,7 @@ const welcome = require('./controllers/frontend/welcome'),
       userCreate = require('./controllers/frontend/userCreate'),
       userLogin = require('./controllers/frontend/userLogin'),
       userLogout = require('./controllers/frontend/userLogout'),
+      userProfileEdit = require('./controllers/frontend/userProfileEdit'),
       
     // Medias
       mediaAddForm = require('./controllers/backend/medias/mediaAddForm'),
@@ -122,6 +123,7 @@ app.get('/members/displayList', adminAuth, memberDisplayList)
 app.post ('/users/add', userCreate)
 app.post('/users/login', userLogin )
 app.get('/users/logout',auth, userLogout)
+app.get('/users/profile/edit/:userId', auth, userProfileEdit)
 // Backend
 app.get('/admins/add/:userId', adminAuth, adminAdd)
 app.get('/admins/delete/:userId', adminAuth, adminDelete)

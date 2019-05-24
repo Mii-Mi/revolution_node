@@ -33,7 +33,7 @@ module.exports = (req, res) => {
             const member = true
             res.render('frontendView/userProfile', { usr, isOwner, member, userIsAdmin, article })
         } else {
-            res.render('frontendView/userProfile', { article });
+            res.render('frontendView/userProfile', { usr, article });
         }
     })
 }

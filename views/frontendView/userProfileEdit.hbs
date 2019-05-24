@@ -1,0 +1,38 @@
+<section class="formContainer bloc">
+    <form action="/users/profile/update/{{profile._id}}" method="POST" enctype="multipart/form-data">
+        <p>
+            <label for="mood">Votre billet d'humeur :</label>
+            <textarea class="textarea" name="content">{{{profile.mood}}}</textarea>
+            <script>
+                CKEDITOR.replace(
+                    ('content'));
+                CKEDITOR.config.entities = false;
+                CKEDITOR.config.entities_latin = false;
+            </script>
+        </p>
+        <p>
+            <label for="location">Votre ville :</label>
+            <input type="text" name="location" id="location" value="{{profile.location}}" />
+        </p>
+        <p>
+            <label for="age">Votre âge :</label>
+            <input type="number" name="age" id="age" value="{{profile.age}}" />
+        </p>
+        <p>
+            <label for="fbLink">Votre lien facebook :</label>
+            <input type="text" name="fbLink" id="fbLink" value="{{profile.fbLink}}" />
+        </p>
+        <p>
+            <label for="twLink">Votre lien twitter :</label>
+            <input type="text" name="twLink" id="twLink" value="{{profile.twLink}}" />
+        </p>
+        <p>
+            <label for="avatar">Choisir un avatar</label>
+            <input class="file-input" type="file" name="avatar">
+        </p>
+        <p>
+            <input class="button" type="submit" value="Envoyer" />
+            <a href="/">Annuler</a>
+        </p>
+    </form>
+</section>
