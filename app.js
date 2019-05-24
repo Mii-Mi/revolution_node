@@ -74,6 +74,7 @@ const welcome = require('./controllers/frontend/welcome'),
       userLogin = require('./controllers/frontend/userLogin'),
       userLogout = require('./controllers/frontend/userLogout'),
       userProfileEdit = require('./controllers/frontend/userProfileEdit'),
+      userProfileUpdate = require('./controllers/frontend/userProfileUpdate')
       
     // Medias
       mediaAddForm = require('./controllers/backend/medias/mediaAddForm'),
@@ -124,6 +125,7 @@ app.post ('/users/add', userCreate)
 app.post('/users/login', userLogin )
 app.get('/users/logout',auth, userLogout)
 app.get('/users/profile/edit/:userId', auth, userProfileEdit)
+app.post('/users/profile/update/:profileId', auth, userProfileUpdate)
 // Backend
 app.get('/admins/add/:userId', adminAuth, adminAdd)
 app.get('/admins/delete/:userId', adminAuth, adminDelete)
