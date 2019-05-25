@@ -17,17 +17,14 @@
             {{/if}}{{/if}}
             <div class="mood">
                 <h4>Billet d'humeur</h4>
-                <p>
-                    Colportées et serinées dans toute la colonie, désirait que les officiers de sa maison à trois étages, embelli seulement
-                    par des joueurs de dés !<br />Lancé trop fort, ça peut tuer.
-                </p>
+                {{{profile.mood}}}
             </div>
             <div class="profileInfo">
-                <p>item</p>
-                <p>item</p>
+                <p>Age : {{profile.age}}</p>
+                <p>Lieu : {{profile.location}}</p>
                 <div class="social">
-                    <p><a href="" target="_blank"><img src="/images/logos/facebook.png" alt="logo facebook" /></a></p>
-                    <p><a href="" target="_blank"><img src="/images/logos/twitter.png" alt="logo twitter" /></a></p>
+                    <p><a href="{{profile.fbLink}}" target="_blank"><img src="/images/logos/facebook.png" alt="logo facebook" /></a></p>
+                    <p><a href="{{profile.twLink}}" target="_blank"><img src="/images/logos/twitter.png" alt="logo twitter" /></a></p>
                 </div>
             </div>
         </section>

@@ -2,10 +2,10 @@
     <form action="/users/profile/update/{{profile._id}}" method="POST" enctype="multipart/form-data">
         <p>
             <label for="mood">Votre billet d'humeur :</label>
-            <textarea class="textarea" name="content">{{{profile.mood}}}</textarea>
+            <textarea class="textarea" name="mood">{{{profile.mood}}}</textarea>
             <script>
                 CKEDITOR.replace(
-                    ('content'));
+                    ('mood'));
                 CKEDITOR.config.entities = false;
                 CKEDITOR.config.entities_latin = false;
             </script>
@@ -25,10 +25,6 @@
         <p>
             <label for="twLink">Votre lien twitter :</label>
             <input type="text" name="twLink" id="twLink" value="{{profile.twLink}}" />
-        </p>
-        <p>
-            <label for="avatar">Choisir un avatar</label>
-            <input class="file-input" type="file" name="avatar">
         </p>
         <p>
             <input class="button" type="submit" value="Envoyer" />

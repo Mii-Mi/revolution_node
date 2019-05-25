@@ -1,4 +1,5 @@
 const Users = require('../../models/User'),
+      Profiles = require('../../models/Profiles'),
       Articles = require('../../models/Articles')
 
 module.exports = (req, res) => {
@@ -7,7 +8,7 @@ module.exports = (req, res) => {
         userIsBanned = false
         isOwner = false
 
-    Users.findById(req.params.userId, async (error, usr) => {
+    Users.findById(req.params.userId, (error, usr) => {
         // console.log(req.flash('data')[0]);
         if(error) {
             console.log(error);
@@ -17,23 +18,27 @@ module.exports = (req, res) => {
             isOwner = true
         }
 
-        if (usr.userGroup == 0){
+        if (usr.userGroup === 0){
             userIsAdmin = true
         }else if (usr.userGroup === 3){
             userIsBanned = true
         }
 
+        Profiles.findOne({userId: usr._id}, async (error, profile) => {
+            if(error) {
+                console.log(error);
+            }
+            const article = await Articles.find({author: usr.userName})
         
-        const article = await Articles.find({author: usr.userName})
-        
-        if (group === 'admin') {
-            const admin = true
-            res.render('frontendView/userProfile', { usr, isOwner, admin, userIsAdmin, userIsBanned, article })
-        } else if (group === 'member') {
-            const member = true
-            res.render('frontendView/userProfile', { usr, isOwner, member, userIsAdmin, article })
-        } else {
-            res.render('frontendView/userProfile', { usr, article });
-        }
+            if (group === 'admin') {
+                const admin = true
+                res.render('frontendView/userProfile', { usr, profile, isOwner, admin, userIsAdmin, userIsBanned, article })
+            } else if (group === 'member') {
+                const member = true
+                res.render('frontendView/userProfile', { usr, profile, isOwner, member, userIsAdmin, article })
+            } else {
+                res.render('frontendView/userProfile', { usr, profile, article });
+            }
+        })
     })
 }

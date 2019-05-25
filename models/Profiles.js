@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'),
       Schema = mongoose.Schema
 
-const ProfileSchema = new Schema({
+const ProfileSchema = new mongoose.Schema({
     mood: {
         type: String,
         default: 'Pas d\'humeur exprimée pour l\'instant !'
@@ -22,8 +22,7 @@ const ProfileSchema = new Schema({
         default: ''
     },
     userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+        type: String,
     },
     avatar: String,
     createDate: {
