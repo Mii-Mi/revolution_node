@@ -1,10 +1,10 @@
 <h1>Articles recents</h1>
 <section>
     {{#if article}}
-    <section>
+    <section class="galCont">
         {{#each article}}
-        <article class="bloc blocList">
-            <h2><a href="/article/{{_id}}">{{title}}</a></h2>
+        <article class="bloc">
+            <h2><a href="/article/{{_id}}" {{#if read}}class="read"{{/if}}>{{title}}</a></h2>
             {{{content}}}
             <p>Par <a href="/userProfile/{{authorId}}">{{author}}</a></p>
         </article>

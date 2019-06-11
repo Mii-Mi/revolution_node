@@ -93,7 +93,8 @@ const welcome = require('./controllers/frontend/welcome'),
       commentAdd = require('./controllers/frontend/commentAdd'),
       commentEdit = require('./controllers/frontend/commentEdit'),
       commentUpdate = require('./controllers/frontend/commentUpdate'),
-      
+      commentDelete = require('./controllers/frontend/commentDelete'),
+       
     // Admin Backend
         // Medias
       mediaUpdate =  require('./controllers/backend/medias/mediaUpdate'),
@@ -154,6 +155,7 @@ app.get('/article/delete/:articleId', auth, articleDelete)
 app.post('/comments/add/:articleId', auth, commentAdd)
 app.get('/comment/edit/:commentId', auth, commentEdit)
 app.post('/comment/update/:commentId', auth, commentUpdate)
+app.get('/comment/delete/:commentId/:articleId', auth, commentDelete)
 
 
 // ########################

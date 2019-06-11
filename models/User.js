@@ -18,7 +18,8 @@ const UserSchema = new mongoose.Schema({
     },
     userGroup : {
         type: Number
-    }
+    },
+    lastVisit: Number
 })
 
 UserSchema.pre('save', function (next) {

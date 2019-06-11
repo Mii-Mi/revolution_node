@@ -14,7 +14,8 @@ const ArticlesSchema = new mongoose.Schema({
     createDate: {
         type: Date,
         default: new Date()
-    }
+    },
+    tStamp: Number
 })
 
 const Articles = mongoose.model('Articles', ArticlesSchema);

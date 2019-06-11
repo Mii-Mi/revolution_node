@@ -11,7 +11,8 @@ const CommentsSchema = new mongoose.Schema({
     createDate: {
         type: Date,
         default: new Date()
-    }
+    },
+    tStamp: Number
 })
 
 const Comments = mongoose.model('Comments', CommentsSchema);

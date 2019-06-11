@@ -10,6 +10,9 @@ module.exports = async (req, res) => {
         if(error){
             console.log(error);
         }
+
+        req.session[`read` + req.params.articleId] = Date.now()
+
         
         if (article.authorId === req.session.userId){
             isOwner = true;

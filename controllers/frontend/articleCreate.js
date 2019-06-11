@@ -13,7 +13,8 @@ module.exports = (req, res) => {
             {
                 ...req.body,
                 author: user.userName,
-                authorId: user._id
+                authorId: user._id,
+                tStamp: Date.now()
             },
             (error, post) => {
                 if (error) {
