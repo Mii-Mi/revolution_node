@@ -3,27 +3,6 @@ const Users = require('../../models/User'),
 
 module.exports = async (req, res) => {
 
-    if (!req.session.lastVisit) {
-        const usr = await Users.findById(req.session.userId)
-
-        if (usr && usr.lastVisit) {
-            req.session.lastVisit = usr.lastVisit
-        } else {
-            req.session.lastVisit = 0
-        }
-        Users.findByIdAndUpdate(req.session.userId, { lastVisit: Date.now() }, (err, mem) => {
-            if (err) {
-                console.log(err);
-            }
-        })
-    } else {
-        Users.findByIdAndUpdate(req.session.userId, { lastVisit: Date.now() }, (err, mem) => {
-            if (err) {
-                console.log(err);
-            }
-        })
-    }
-
     Users.find( async (error, usr) => {
         // console.log(req.flash('data')[0]);
         if (error) {
