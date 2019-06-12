@@ -3,8 +3,7 @@ const Articles = require('../../models/Articles'),
 
 module.exports = async (req, res) => {
     
-    let isOwner = false,
-        group = req.flash('data')[0]
+    let isOwner = false
 
     Articles.findById(req.params.articleId, async (error, article) => {
         if(error){
@@ -35,17 +34,7 @@ module.exports = async (req, res) => {
                 }
             }
             
-            if (group === 'admin') {
-                const admin = true
-                return res.render('frontendView/articleSingle', { admin, isOwner, article, comment });
-                
-            } else if (group === 'member') {
-                const member = true
-                return res.render('frontendView/articleSingle', { member, isOwner, article, comment });
-                
-            } else {
-                return res.render('frontendView/articleSingle', { article, comment });
-            }
+            res.render('frontendView/articleSingle', { isOwner, article, comment })
 
         })
     });

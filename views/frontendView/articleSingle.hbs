@@ -11,8 +11,8 @@
         {{else}}
             {{#if admin}}
             <div class="adminButtonsCont">
-                <a class="button" href="/article/edit/{{article._id}}">Modifier</a>
-                <a class="button" href="/article/delete/{{article._id}}">Supprimer</a>
+                <a class="button modo" href="/article/edit/{{article._id}}">Modérer</a>
+                <a class="button danger" href="/article/delete/{{article._id}}">Supprimer</a>
             </div>
             {{/if}}
         {{/if}}
@@ -35,7 +35,7 @@
                     {{else}}
                     {{#if ../admin}}
                     <div class="adminButtonsCont">
-                        <a class="button modo" href="/comment/edit/{{_id}}">Modifier</a>
+                        <a class="button modo" href="/comment/edit/{{_id}}">Modérer</a>
                         <a class="button danger" href="/comment/delete/{{_id}}/{{../article._id}}">Supprimer</a>
                     </div>
                     {{/if}}

@@ -2,7 +2,6 @@ const Users = require('../../models/User'),
       Articles = require('../../models/Articles')
 
 module.exports = async (req, res) => {
-    let group = req.flash('data')[0]
 
     if (!req.session.lastVisit) {
         const usr = await Users.findById(req.session.userId)
@@ -64,16 +63,7 @@ module.exports = async (req, res) => {
                     }
                 }
             }
-            if (group === 'admin') {
-                const admin = true
-                res.render('frontendView/articles', { usr, admin, article })
-            } else if (group === 'member') {
-                const member = true
-                res.render('frontendView/articles', { usr, member, article })
-            } else {
-                console.log(group);
-                res.render('frontendView/articles', { article });
-            }
+            res.render('frontendView/articles', { usr, article })
         })
     })
 }

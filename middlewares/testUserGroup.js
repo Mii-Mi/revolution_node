@@ -11,15 +11,13 @@ module.exports = (req, res, next) => {
             res.locals.uName = user.userName;
             
             if (user.userGroup === 0) {
-                req.flash('data', 'admin')
+                res.locals.admin = true
             } else if (user.userGroup === 1) {
-                req.flash('data', 'member')
-            }else if (user.userGroup === 3){
-                delete req.session.userId
-                req.flash('error', 'Il semblerait que vous soyez banni, Veuillez contacter un administrateur !')
-                return res.redirect('/')
+                res.locals.member = true
+            }else if (user.userGroup === 2){
+                res.locals.modo = true
             }else{
-                req.flash('data', '')
+                console.log('no userGroup');
             }
         }
         next()

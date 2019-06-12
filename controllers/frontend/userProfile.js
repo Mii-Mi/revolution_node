@@ -3,8 +3,8 @@ const Users = require('../../models/User'),
       Articles = require('../../models/Articles')
 
 module.exports = (req, res) => {
-    let group = req.flash('data')[0],
-        userIsAdmin = false,
+     
+    let userIsAdmin = false,
         userIsBanned = false
         isOwner = false
 
@@ -30,15 +30,7 @@ module.exports = (req, res) => {
             }
             const article = await Articles.find({author: usr.userName})
         
-            if (group === 'admin') {
-                const admin = true
-                res.render('frontendView/userProfile', { usr, profile, isOwner, admin, userIsAdmin, userIsBanned, article })
-            } else if (group === 'member') {
-                const member = true
-                res.render('frontendView/userProfile', { usr, profile, isOwner, member, userIsAdmin, article })
-            } else {
-                res.render('frontendView/userProfile', { usr, profile, article });
-            }
+            res.render('frontendView/userProfile', { usr, profile, isOwner, userIsAdmin, userIsBanned, article })
         })
     })
 }

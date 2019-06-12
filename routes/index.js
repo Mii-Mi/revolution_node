@@ -7,8 +7,8 @@ const express = require('express'),
 
     // Users
 const auth = require('../middlewares/auth'),
-    adminAuth = require('../middlewares/adminAuth'),
-    testUserGroup = require('../middlewares/testUserGroup')
+      adminAuth = require('../middlewares/adminAuth'),
+      testUserGroup = require('../middlewares/testUserGroup')
 
 router.use('*', testUserGroup)
 
