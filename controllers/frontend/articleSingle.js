@@ -29,6 +29,7 @@ module.exports = async (req, res) => {
                         author: comment[i].author,
                         authorId: comment[i].authorId,
                         articleId: comment[i].articleId,
+                        formatDate: comment[i].formatDate,
                         isCommentOwner: true
                     }
                 }
