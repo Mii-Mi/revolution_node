@@ -19,7 +19,7 @@
         <li><a href="/galleryDisplay">Medias</a></li>
         {{#if user}}
         <li><a href="/userProfile/{{user}}">Mon profil</a></li>
-        <li><a href="/mp/list/{{user}}">Ma messagerie</a></li>
+        <li><a href="/mp/list/{{user}}" {{#if newMp}}style="color: red;">Nouveau message !{{else}}>Ma messagerie{{/if}}</a></li>
             {{#if admin }}
                 <li id="adminMenu" class="dropdown"><a href="">Administrer</a>
                     <ul>

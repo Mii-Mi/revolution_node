@@ -15,6 +15,11 @@ router.use('*', testUserGroup)
     // Posts
 const validForm = require('../middlewares/validForm')
 
+    // Mp
+const newMpTest = require('../middlewares/newMpTest')
+
+router.use('*', newMpTest)
+
 // ########################
 //       Controllers    
 // ########################

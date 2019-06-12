@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const User = require('../models/User')
 
 module.exports = (req, res, next) => {
 
@@ -7,6 +7,7 @@ module.exports = (req, res, next) => {
             req.flash('error', 'Vous devez être connecté pour effectuer cette opération.')
             return res.redirect('/')
         }
+
         next()
     })
 }

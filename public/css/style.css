@@ -172,6 +172,12 @@ img{
 .button.danger:hover{
     background-color: rgba(36, 0, 0, 0.7);
 }
+.button.modo{
+    border: 1px solid rgb(54, 228, 1);
+}
+.button.modo:hover{
+    background-color: rgba(11, 36, 0, 0.7);
+}
 footer{
     display: flex;
     justify-content: space-between;
