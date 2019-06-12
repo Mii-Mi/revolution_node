@@ -122,6 +122,7 @@ h2{
     font-size: 4em;
 }
 h3{
+    margin: 0 auto;
     text-decoration: underline;
     font-size: 1.5em;
 }
@@ -343,6 +344,7 @@ article figure img{
     border: 1px solid rgb(228, 228, 0);
     border-radius: 5px;
     text-align: center;
+    padding: 0 10px;
 }
 .profileCont section{
     flex: 1;
@@ -359,6 +361,17 @@ article figure img{
     padding: 0 15px;
     border: 1px solid rgb(228, 228, 0);
     border-radius: 5px;
+}
+
+/* MP
+################################# */
+
+.mpFoot{
+    border-top: 1px solid rgba(253, 253, 98, 0.6);
+    padding-top: 10px;
+}
+.mpListItem{
+    margin-top: 15px;
 }
 
 /* ADMIN BACKEND

@@ -8,10 +8,7 @@ const CommentsSchema = new mongoose.Schema({
     author: String,
     authorId: String,
     articleId: String,
-    createDate: {
-        type: Date,
-        default: new Date()
-    },
+    formatDate: String,
     tStamp: Number
 })
 

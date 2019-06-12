@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const ArticlesSchema = new mongoose.Schema({
+const ConversationSchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true, 'Le champ "titre" est requis.']
@@ -11,10 +11,12 @@ const ArticlesSchema = new mongoose.Schema({
     },
     author: String,
     authorId: String,
+    dest: String,
+    destId: String,
     formatDate: String,
-    tStamp: Number
+    tStamp: Number,
 })
 
-const Articles = mongoose.model('Articles', ArticlesSchema);
+const Conversation = mongoose.model('Conversation', ConversationSchema);
 
-module.exports = Articles;
+module.exports = Conversation;

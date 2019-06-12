@@ -24,7 +24,7 @@
             {{#each comment}}
             <article class="comEl" id="{{_id}}">
                 <div class="bloc">
-                    <p class="comHead">Publié par <a href="/userProfile/{{authorId}}">{{author}}</a></p>
+                    <p class="comHead">Publié par <a href="/userProfile/{{authorId}}">{{author}}</a>, le {{formatDate}}</p>
                     <p class="content">{{{content}}}</p>
                     {{#if isCommentOwner}}
                     <div class="adminButtonsCont">

@@ -1,0 +1,16 @@
+<header>
+    <h1></h1>
+    <h2>Ma boite de messagerie privée</h2>
+</header>
+<section>
+    {{#if mp}}
+    {{#each mp}}
+    <article class="bloc mpListItem">
+        <h3><a href="/mp/single/{{_id}}" {{#if read}}class="read"{{/if}}>{{title}}</a></h3>
+        <p class="mpFoot">Message de <a href="/userProfile/{{authorId}}">{{author}}</a> pour <a href="/userProfile/{{destId}}">{{dest}}</a> , le {{formatDate}}</p>
+    </article>
+    {{/each}}
+    {{else}}
+    <p>Pas de messages pour l'instant !</p>
+    {{/if}}
+</section>

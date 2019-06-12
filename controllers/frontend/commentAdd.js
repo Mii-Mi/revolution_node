@@ -1,8 +1,10 @@
 const Comments = require('../../models/Comments'),
       Articles = require('../../models/Articles'),
-      Users = require('../../models/User')
+      Users = require('../../models/User'),
+      dateFormat = require('dateformat')
 
 module.exports = (req, res) => {
+    let date = Date.now()
 
     Users.findById(req.session.userId, (error, user) => {
         // console.log(req.flash('data')[0]);
@@ -16,6 +18,7 @@ module.exports = (req, res) => {
                 author: user.userName,
                 authorId: user._id,
                 articleId: req.params.articleId,
+                formatDate: (dateFormat(date, "dd mm yyyy à HH:MM:ss")),
                 tStamp: Date.now()
             },
             (error, comment) => {

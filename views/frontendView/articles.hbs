@@ -6,7 +6,7 @@
         <article class="bloc">
             <h2><a href="/article/{{_id}}" {{#if read}}class="read"{{/if}}>{{title}}</a></h2>
             {{{content}}}
-            <p>Par <a href="/userProfile/{{authorId}}">{{author}}</a></p>
+            <p>Par <a href="/userProfile/{{authorId}}">{{author}}</a>, le {{formatDate}}</p>
         </article>
         {{/each}}
     </section>

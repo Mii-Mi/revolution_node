@@ -8,6 +8,7 @@
             <p><img {{#if avatar}}src=""{{else}}src="/images/avatars/default.png"{{/if}} alt="avatar" class="avatar"></p>
             <h4>Statut</h4>
             <p>{{#if userIsAdmin}}Admin{{else}}{{#if userIsBanned}}Banni{{else}}Membre{{/if}}{{/if}}</p>
+            <p><a class="button" href="/mp/add/{{usr._id}}/{{usr.userName}}">Message privé</a></p>
         </aside>
         <section class="profileInfoCont">
             {{#if isOwner}}
