@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     if (!req.session.lastVisit) {
         const usr = await Users.findById(req.session.userId)
 
-        if (usr.lastVisit) {
+        if (usr && usr.lastVisit) {
             req.session.lastVisit = usr.lastVisit
         } else {
             req.session.lastVisit = 0
