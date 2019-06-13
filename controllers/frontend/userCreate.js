@@ -11,8 +11,8 @@ module.exports = (req, res) => {
 
                     const warn = (Object.keys(error.errors).map(key => error.errors[key].message));
 
-                    req.flash('error', warn);
-                    req.flash('data', req.body)
+                    console.log(warn);
+                    
 
                     return res.redirect('/');
                     
@@ -25,8 +25,8 @@ module.exports = (req, res) => {
 
                             const warn2 = (Object.keys(error.errors).map(key => error.errors[key].message));
 
-                            req.flash('error', warn2);
-                            req.flash('data', req.body)
+                            console.log(warn2);
+                            
 
                             return res.redirect('/');
 

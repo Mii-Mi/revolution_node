@@ -9,15 +9,24 @@ module.exports = (req, res, next) => {
         
         if(user){
             res.locals.uName = user.userName;
+
+            switch (user.userGroup) {
+                case 0:
+                    res.locals.admin = true
+                    break;
+                case 1:
+                    res.locals.member = true
+                    break;
+                case 2:
+                    res.locals.modo = true
+                    break;
+                case 3:
+                    res.locals.banned = true
+                    break;
             
-            if (user.userGroup === 0) {
-                res.locals.admin = true
-            } else if (user.userGroup === 1) {
-                res.locals.member = true
-            }else if (user.userGroup === 2){
-                res.locals.modo = true
-            }else{
-                console.log('no userGroup');
+                default:
+                    console.log('Error: no userGroup')
+                    break;
             }
         }
         next()

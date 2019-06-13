@@ -33,11 +33,15 @@
                     </div>
                 
                     {{else}}
-                    {{#if ../admin}}
+                    {{#*inline "modBtns"}}
                     <div class="adminButtonsCont">
                         <a class="button modo" href="/comment/edit/{{_id}}">Modérer</a>
                         <a class="button danger" href="/comment/delete/{{_id}}/{{../article._id}}">Supprimer</a>
                     </div>
+                    {{/inline}}
+                    {{#if ../admin}}
+                        {{> modBtns}}
+                    {{else}}{{#if ../modo}}{{> modBtns}}{{/if}}
                     {{/if}}
                     {{/if}}
                 </div>

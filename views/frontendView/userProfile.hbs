@@ -7,15 +7,39 @@
         <aside>
             <p><img {{#if avatar}}src=""{{else}}src="/images/avatars/default.png"{{/if}} alt="avatar" class="avatar"></p>
             <h4>Statut</h4>
-            <p>{{#if userIsAdmin}}Admin{{else}}{{#if userIsBanned}}Banni{{else}}Membre{{/if}}{{/if}}</p>
+            <p>{{#if userIsAdmin}}Admin{{else}}{{#if userIsBanned}}Banni{{else}}{{#if userIsModo}}Modérateur{{else}}Membre{{/if}}{{/if}}{{/if}}</p>
             <p><a class="button" href="/mp/add/{{usr._id}}/{{usr.userName}}">Message privé</a></p>
         </aside>
         <section class="profileInfoCont">
+
             {{#if isOwner}}
-            <p class="profileUpdtBut"><a class="button" href="/users/profile/edit/{{usr._id}}">modifier mon profil</a></p>
-            {{else}}{{#if admin}}
-            <p class="profileUpdtBut"><a class="button" href="/users/profile/edit/{{usr._id}}">modifier le profil de {{usr.userName}}</a></p>
-            {{/if}}{{/if}}
+                <p class="profileUpdtBut"><a class="button" href="/users/profile/edit/{{usr._id}}">modifier mon profil</a></p>
+            {{/if}}
+
+            {{#*inline "profEditAdmBtn"}}
+                <p class="profileUpdtBut"><a class="button modo" href="/users/profile/edit/{{usr._id}}">modifier le profil de {{usr.userName}}</a></p>
+            {{/inline}}
+            
+            {{#if admin}}
+                {{#if userIsModo}}
+                    {{> profEditAdmBtn}}
+                {{else}}
+                {{#if userIsMember}}
+                    {{> profEditAdmBtn}}
+                {{else}}
+                {{#if userIsBanned}}
+                    {{> profEditAdmBtn}}
+                {{/if}}{{/if}}{{/if}}
+            {{/if}}
+            {{#if modo}}
+                {{#if userIsMember}}
+                    {{> profEditAdmBtn}}
+                {{else}}
+                {{#if userIsBanned}}
+                    {{> profEditAdmBtn}}
+                {{/if}}{{/if}}
+            {{/if}}
+            
             <div class="mood">
                 <h4>Billet d'humeur</h4>
                 {{{profile.mood}}}
@@ -41,12 +65,24 @@
             {{else}}
             <p><a class="button danger" href="/members/ban/{{usr._id}}">Bannir</a></p>
                 {{#if userIsAdmin}}
-                <p><a class="button" href="/admins/delete/{{usr._id}}">Révoquer des admins</a></p>
+                <p><a class="button danger" href="/admins/delete/{{usr._id}}">Révoquer des admins</a></p>
                 {{else}}
-                <p><a class="button" href="/admins/add/{{usr._id}}">Définir en tant qu'admin</a></p>
+                    {{#if userIsModo}}
+                        <p><a class="button danger" href="/admins/delete/{{usr._id}}">Révoquer des modérateurs</a></p>
+                        <p><a class="button modo" href="/admins/add/{{usr._id}}">Définir en tant qu'admin</a></p>
+                    {{else}}
+                        <p><a class="button modo" href="/modos/add/{{usr._id}}">Définir en tant que modérateur</a></p>
+                    {{/if}}
                 {{/if}}
             {{/if}}
-        {{/if}}
+        {{else}}
+        {{#if modo}}
+            {{#if userIsBanned}}
+            <p><a class="button danger" href="/members/unban/{{usr._id}}">Amnistier</a></p>
+            {{else}}
+            <p><a class="button danger" href="/members/ban/{{usr._id}}">Bannir</a></p>
+            {{/if}}
+        {{/if}}{{/if}}
     {{/if}}
     </div>
 </header>
@@ -66,11 +102,20 @@
         </div>
         {{else}}
             {{#if ../admin}}
-            <div class="adminButtonsCont">
-                <a class="button modo" href="/article/edit/{{id}}">Modérer</a>
-                <a class="button danger" href="/article/delete/{{id}}">Supprimer</a>
-            </div>
-            {{/if}}
+                {{#if ../userIsMember}}{{else}}{{#if ../userIsBanned}}{{else}}{{#if ../userIsModo}}
+                    <div class="adminButtonsCont">
+                        <a class="button modo" href="/article/edit/{{id}}">Modérer</a>
+                        <a class="button danger" href="/article/delete/{{id}}">Supprimer</a>
+                    </div>
+                {{/if}}{{/if}}{{/if}}
+            {{else}}{{#if ../modo}}
+                {{#if ../userIsMember}}{{else}}{{#if ../userIsBanned}}
+                    <div class="adminButtonsCont">
+                        <a class="button modo" href="/article/edit/{{id}}">Modérer</a>
+                        <a class="button danger" href="/article/delete/{{id}}">Supprimer</a>
+                    </div>
+                {{/if}}{{/if}}
+            {{/if}}{{/if}}
         {{/if}}
     </article>
     {{/each}}

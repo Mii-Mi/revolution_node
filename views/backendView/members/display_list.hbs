@@ -18,14 +18,14 @@
         </tr>
         {{/each}}
     {{/if}}
-    {{#if banned}}
-        {{#each banned}}
+    {{#if modos}}
+        {{#each modos}}
         <tr>
             <td><a href="/userProfile/{{_id}}">Profil</a></td>
             <td>{{_id}}</td>
             <td>{{userName}}</td>
             <td>{{mail}}</td>
-            <td>Banni</td>
+            <td>Modérateur</td>
         </tr>
         {{/each}}
     {{/if}}
@@ -37,6 +37,17 @@
             <td>{{userName}}</td>
             <td>{{mail}}</td>
             <td>Membre</td>
+        </tr>
+        {{/each}}
+    {{/if}}
+    {{#if banned}}
+        {{#each banned}}
+        <tr>
+            <td><a href="/userProfile/{{_id}}">Profil</a></td>
+            <td>{{_id}}</td>
+            <td>{{userName}}</td>
+            <td>{{mail}}</td>
+            <td>Banni</td>
         </tr>
         {{/each}}
     {{/if}}
