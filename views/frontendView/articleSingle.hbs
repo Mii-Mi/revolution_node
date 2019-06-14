@@ -9,12 +9,27 @@
             <a class="button" href="/article/delete/{{article._id}}">Supprimer</a>
         </div>
         {{else}}
+            {{#* inline "btnModArt"}}
+                <div class="adminButtonsCont">
+                    <a class="button modo" href="/article/edit/{{article._id}}">Modérer</a>
+                    <a class="button danger" href="/article/delete/{{article._id}}">Supprimer</a>
+                </div>
+            {{/inline}}
             {{#if admin}}
-            <div class="adminButtonsCont">
-                <a class="button modo" href="/article/edit/{{article._id}}">Modérer</a>
-                <a class="button danger" href="/article/delete/{{article._id}}">Supprimer</a>
-            </div>
-            {{/if}}
+                {{#if userIsModo}}
+                {{> btnModArt}}
+                {{else}}{{#if userIsMember}}
+                {{> btnModArt}}
+                {{else}}{{#if userIsBanned}}
+                {{> btnModArt}}
+                {{/if}}{{/if}}{{/if}}
+            {{else}}{{#if modo}}
+                {{#if userIsMember}}
+                {{> btnModArt}}
+                {{else}}{{#if userIsBanned}}
+                {{> btnModArt}}
+                {{/if}}{{/if}}
+            {{/if}}{{/if}}
         {{/if}}
     </div>
 </section>
@@ -40,10 +55,20 @@
                     </div>
                     {{/inline}}
                     {{#if ../admin}}
+                        {{#if modoComment}}
                         {{> modBtns}}
-                    {{else}}{{#if ../modo}}{{> modBtns}}{{/if}}
-                    {{/if}}
-                    {{/if}}
+                        {{else}}{{#if memberComment}}
+                        {{> modBtns}}
+                        {{else}}{{#if bannedComment}}
+                        {{> modBtns}}
+                        {{/if}}{{/if}}{{/if}}
+                    {{else}}{{#if ../modo}}
+                        {{#if memberComment}}
+                        {{> modBtns}}
+                        {{else}}{{#if bannedComment}}
+                        {{> modBtns}}
+                        {{/if}}{{/if}}
+                    {{/if}}{{/if}}{{/if}}
                 </div>
             </article>
             {{/each}}
