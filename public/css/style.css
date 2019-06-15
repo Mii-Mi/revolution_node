@@ -254,7 +254,7 @@ figcaption{
 .social p:hover img{
     transform: rotateY(180deg);
 }
-article img, article figure img{
+article img, article figure img, article .videodetector{
     display: block;
     margin: auto;
     max-width: 100%;
