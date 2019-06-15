@@ -183,6 +183,14 @@ footer{
     justify-content: space-between;
     padding-top: 2em;
 }
+/* ckeditor */
+.cke_top{
+    background-color: lightgoldenrodyellow !important;
+    color: lightgoldenrodyellow;
+}
+.cke_bottom{
+    background-color: lemonchiffon !important;
+}
 
 /* ACCUEIL
 ################################# */
@@ -268,6 +276,13 @@ article figure img{
 
 /*ARTICLES
 ################################# */
+/* Global */
+.videodetector input{
+    display: none;
+}
+.remove-videodetector{
+    display: none;
+}
 
 /* List */
 .blocList{

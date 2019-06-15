@@ -20,15 +20,11 @@ module.exports = async (req, res) => {
                         read: true
                     }
                 }
-                console.log(article[i]);
-                
             } else {
                 article[i] = {
                     ...artBody,
                     read: true
                 }
-                console.log(article[i]);
-                
             }
             await Users.findById(article[i].authorId, (error, usr) =>{
                 
