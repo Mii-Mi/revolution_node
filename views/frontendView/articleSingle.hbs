@@ -1,7 +1,9 @@
 <section class="articleSection">
     <h2>{{article.title}}</h2>
     <div class="bloc">
-        {{{article.content}}}
+        <div class="ckContent">
+            {{{article.content}}}
+        </div>
         <p>Publié par <a href="/userProfile/{{article.authorId}}">{{article.author}}</a></p>
         {{#if isOwner}}
         <div class="adminButtonsCont">

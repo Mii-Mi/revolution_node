@@ -126,6 +126,13 @@ h3{
     text-decoration: underline;
     font-size: 1.5em;
 }
+.ckContent a{
+    display: block;
+    width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 a{
     text-decoration: none;
     color: rgb(253, 253, 98);
@@ -282,6 +289,9 @@ article figure img{
 }
 .remove-videodetector{
     display: none;
+}
+iframe{
+    max-width: 100%;
 }
 
 /* List */
