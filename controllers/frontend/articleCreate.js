@@ -26,7 +26,7 @@ module.exports = (req, res) => {
                 } else {
                     req.flash('success', 'Article créé avec succes !');
                 }
-                res.redirect(`/userProfile/${req.session.userId}`)
+                res.redirect('/articles/display')
             })
 
     })

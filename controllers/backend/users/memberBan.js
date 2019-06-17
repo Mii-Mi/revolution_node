@@ -3,7 +3,8 @@ const Users = require('../../../models/User')
 module.exports = (req, res) => {
     Users.findByIdAndUpdate(
         req.params.userId,
-        { userGroup: 3 },
+        { userGroup: 3,
+          banCause: req.body.content},
         (error, member) => {
             if (error) {
                 req.flash('error', 'La mise au ban a échoué, veuillez réessayer.')

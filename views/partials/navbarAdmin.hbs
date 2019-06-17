@@ -1,0 +1,23 @@
+<nav class="stellarnav">
+    <ul>
+        <li><a href="/">Retour site</a></li>
+        <li><a class="dropdown"href="">Membres</a>
+            <ul>
+                <li><a href="/members/displayList">Liste des membres</a></li>
+                <li><a href="/members/banList">Liste des bannis</a></li>
+
+            </ul>
+        </li>
+        <li><a href="/galleryDisplay">Medias</a></li>
+        <li><a href="/galleryDisplay">annonce d'accueil</a></li>
+
+        {{#if user}}
+        <li><a href="/mp/list/{{user}}" {{#if newMp}}style="color: red;">Nouveau message !{{else}}>Ma
+                messagerie{{/if}}</a></li>
+        <li id="deco"><a id="linkDeco" href="/users/logout">Déconnexion ({{uName}})</a></li>
+        {{else}}
+        <li id="connect"><a id="linkReg" class="js-modal" href="#modal2">Inscription</a></li>
+        <li id="connect"><a id="linkCo" class="js-modal" href="#modal1">Connexion</a></li>
+        {{/if}}
+    </ul>
+</nav>

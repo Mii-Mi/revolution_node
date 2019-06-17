@@ -72,6 +72,8 @@ const welcome = require('../controllers/frontend/welcome'),
       mpRespDelete = require('../controllers/frontend/mpRespDelete'),
 
     // Admin Backend
+        // Map
+      adminWelcome = require('../controllers/backend/adminWelcome'),
         // Medias
       mediaUpdate = require('../controllers/backend/medias/mediaUpdate'),
       mediaDelete = require('../controllers/backend/medias/mediaDelete'),
@@ -79,6 +81,8 @@ const welcome = require('../controllers/frontend/welcome'),
       adminAdd = require('../controllers/backend/users/adminAdd'),
       adminDelete = require('../controllers/backend/users/adminDelete'),
       memberDisplayList = require('../controllers/backend/users/memberDisplayList'),
+      memberBanlist = require('../controllers/backend/users/memberBanlist'),
+      memberBanForm = require('../controllers/backend/users/memberBanForm'),
       memberBan = require('../controllers/backend/users/memberBan'),
       memberUnban = require('../controllers/backend/users/memberUnban'),
       modoAdd = require('../controllers/backend/users/modoAdd')
@@ -96,6 +100,8 @@ router.get('/articles/display', articlesDisplay)
 router.get('/userProfile/:userId', userProfile)
     // Backend
 router.get('/members/displayList', authModo, memberDisplayList)
+router.get('/members/banlist', authModo, memberBanlist)
+router.get('/admin/welcome', adminAuth, adminWelcome)
 
 // Users
     // Frontend
@@ -107,7 +113,8 @@ router.post('/users/profile/update/:profileId', auth, userProfileUpdate)
     // Backend
 router.get('/admins/add/:userId', adminAuth, adminAdd)
 router.get('/admins/delete/:userId', adminAuth, adminDelete)
-router.get('/members/ban/:userId', authModo, memberBan)
+router.get('/members/banForm/:userId', authModo, memberBanForm)
+router.post('/members/ban/:userId', authModo, memberBan)
 router.get('/members/unban/:userId', authModo, memberUnban)
 router.get('/modos/add/:userId', adminAuth, modoAdd)
 

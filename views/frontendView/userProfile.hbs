@@ -63,7 +63,7 @@
             {{#if userIsBanned}}
             <p><a class="button danger" href="/members/unban/{{usr._id}}">Amnistier</a></p>
             {{else}}
-            <p><a class="button danger" href="/members/ban/{{usr._id}}">Bannir</a></p>
+            <p><a class="button danger" href="/members/banForm/{{usr._id}}">Bannir</a></p>
                 {{#if userIsAdmin}}
                 <p><a class="button danger" href="/admins/delete/{{usr._id}}">Révoquer des admins</a></p>
                 {{else}}
@@ -94,8 +94,11 @@
     {{#each article}}
     <article class="bloc" id="{{_id}}">
         <h2><a href="/article/{{_id}}">{{title}}</a></h2>
-        {{{content}}}
+        <div class="ckContent">
+            {{{content}}}
+        </div>
         {{#if ../isOwner}}
+        <p>Publié par <a href="/userProfile/{{article.authorId}}">{{author}}</a>, le {{formatDate}}</p>
         <div class="adminButtonsCont">
             <a class="button" href="/article/edit/{{id}}">Modifier</a>
             <a class="button" href="/article/delete/{{id}}">Supprimer</a>

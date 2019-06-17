@@ -19,7 +19,8 @@ const UserSchema = new mongoose.Schema({
     userGroup : {
         type: Number
     },
-    lastVisit: Number
+    lastVisit: Number,
+    banCause: String
 })
 
 UserSchema.pre('save', function (next) {

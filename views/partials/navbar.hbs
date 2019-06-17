@@ -1,19 +1,5 @@
 <nav class="stellarnav">
     <ul>
-        {{!-- <li class="mega" data-columns="5"><a href="">Liens</a>
-            <ul>
-                <li><a href="https://la-bas.org" target="_blank">Là-bas si j'y suis</a></li>
-                <li><a href="https://thinkerview.com/" target="_blank">Thinkerview</a></li>
-                <li><a href="https://www.lemediatv.fr/" target="_blank">Le Media.tv</a></li>
-                <li><a href="https://lvsl.fr/" target="_blank">Le vent se lève</a></li>
-                <li><a href="https://mrmondialisation.org/" target="_blank">Mr Mondialisation</a></li>
-                <li><a href="https://www.acrimed.org/" target="_blank">Acrimed</a></li>
-                <li><a href="https://www.bastamag.net/" target="_blank">Basta !</a></li>
-                <li><a href="http://lundi.am/" target="_blank">Lundi matin</a></li>
-                <li><a href="https://planetes360.fr/" target="_blank">Planètes 360</a></li>
-            </ul>
-        </li> --}}
-
         <li><a href="/">Accueil</a></li>
         <li><a href="/articles/display">Articles</a></li>
         <li><a href="/galleryDisplay">Medias</a></li>
@@ -21,15 +7,16 @@
         <li><a href="/userProfile/{{user}}">Mon profil</a></li>
         <li><a href="/mp/list/{{user}}" {{#if newMp}}style="color: red;">Nouveau message !{{else}}>Ma messagerie{{/if}}</a></li>
             {{#if admin }}
-                <li id="adminMenu" class="dropdown"><a href="">Administrer</a>
+                <li id="adminMenu" class="dropdown"><a href="/admin/welcome">Administrer</a>
                     <ul>
                         <li><a href="/medias/add">Ajouter un media</a></li>
                         <li><a href="/members/displayList">Liste des membres</a></li>
+                        <li><a href="/members/banlist">Liste des bannis</a></li>
                     </ul>
                 </li>
             {{/if}}
             {{#if modo }}
-                <li id="adminMenu" class="dropdown"><a href="">Administrer</a>
+                <li id="adminMenu" class="dropdown"><a href="">Modération</a>
                     <ul>
                         <li><a href="/members/displayList">Liste des membres</a></li>
                     </ul>

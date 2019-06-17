@@ -35,13 +35,16 @@ module.exports = (req, res) => {
             return res.redirect('/')
         }
 
-            Profiles.findOne({userId: usr._id}, async (error, profile) => {
-                if(error) {
-                    console.log(error);
+        Profiles.findOne({userId: usr._id}, async (error, profile) => {
+            if(error) {
+                console.log(error);
+            }
+            await Articles.find({ authorId: usr._id }, null, { sort: { tStamp: -1 } }, (err, article) =>{
+                if (err){
+                    console.log(err);
                 }
-                const article = await Articles.find({authorId: usr._id})
-            
                 res.render('frontendView/userProfile', { usr, profile, isOwner, userIsAdmin, userIsModo, userIsMember, userIsBanned, article })
             })
+        })
     })
 }

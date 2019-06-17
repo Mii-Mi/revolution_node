@@ -1,0 +1,16 @@
+<h1>Note interne de ban</h1>
+<p>Veuillez indiquer le motif du ban de {{banned.userName}}</p>
+
+<form class="formBloc" method="POST" action="/members/ban/{{banned._id}}">
+    <div class="form-group">
+        <label for="content">Motif :</label>
+        <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+        <script>
+            CKEDITOR.replace(
+                ('content'));
+            CKEDITOR.config.entities = false;
+            CKEDITOR.config.entities_latin = false;
+        </script>
+    </div>
+    <button type="submit" class="button danger">Bannir</button>
+</form>

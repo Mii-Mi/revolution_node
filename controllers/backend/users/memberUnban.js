@@ -3,7 +3,8 @@ const Users = require('../../../models/User')
 module.exports = (req, res) => {
     Users.findByIdAndUpdate(
         req.params.userId,
-        { userGroup: 1 },
+        { userGroup: 1,
+          banCause: null },
         (error, member) => {
             if (error) {
                 req.flash('error', 'L\' amnistie échoué, veuillez réessayer.')

@@ -1,15 +1,44 @@
 <h1>Articles recents</h1>
 <section>
+    {{#if user}}
+    <p><a class="button" href="/articles/add">ajouter un article</a></p>
+    {{/if}}
     {{#if article}}
     <section class="galCont">
         {{#each article}}
         <article class="bloc">
             <h2><a href="/article/{{_id}}" {{#if read}}class="read"{{/if}}>{{title}}</a></h2>
-            {{#if modoArt}}<p>Modo</p>{{/if}}
             <div class="ckContent">
                 {{{content}}}
             </div>
             <p>Par <a href="/userProfile/{{authorId}}">{{author}}</a>, le {{formatDate}}</p>
+            {{#if isOwner}}
+            <div class="adminButtonsCont">
+                <a class="button" href="/article/edit/{{_id}}">Modérer</a>
+                <a class="button" href="/article/delete/{{_id}}">Supprimer</a>
+            </div>
+            {{else}}
+            {{#* inline "btnModArt"}}
+            <div class="adminButtonsCont">
+                <a class="button modo" href="/article/edit/{{_id}}">Modérer</a>
+                <a class="button danger" href="/article/delete/{{_id}}">Supprimer</a>
+            </div>
+            {{/inline}}
+            {{#if ../admin}}
+                {{#if memberArt}}
+                {{> btnModArt}}
+                {{else}}{{#if modoArt}}
+                {{> btnModArt}}
+                {{else}}{{#if bannedArt}}
+                {{> btnModArt}}
+                {{/if}}{{/if}}{{/if}}
+            {{else}}{{#if ../modo}}
+                {{#if memberArt}}
+                {{> btnModArt}}
+                {{else}}{{#if bannedArt}}
+                {{> btnModArt}}
+                {{/if}}{{/if}}
+            {{/if}}{{/if}}{{/if}}
         </article>
         {{/each}}
     </section>

@@ -4,7 +4,7 @@
         <div class="ckContent">
             {{{article.content}}}
         </div>
-        <p>Publié par <a href="/userProfile/{{article.authorId}}">{{article.author}}</a></p>
+        <p>Publié par <a href="/userProfile/{{article.authorId}}">{{article.author}}</a>, le {{article.formatDate}}</p>
         {{#if isOwner}}
         <div class="adminButtonsCont">
             <a class="button" href="/article/edit/{{article._id}}">Modifier</a>
