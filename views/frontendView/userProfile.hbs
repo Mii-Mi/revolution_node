@@ -80,8 +80,12 @@
             {{#if userIsBanned}}
             <p><a class="button danger" href="/members/unban/{{usr._id}}">Amnistier</a></p>
             {{else}}
+            {{#if userIsMember}}
             <p><a class="button danger" href="/members/ban/{{usr._id}}">Bannir</a></p>
-            {{/if}}
+            {{else}}
+            {{#if userIsModo}}
+            <p><a class="button danger" href="/members/ban/{{usr._id}}">Bannir</a></p>
+            {{/if}}{{/if}}{{/if}}
         {{/if}}{{/if}}
     {{/if}}
     </div>

@@ -6,7 +6,11 @@ const MediasSchema = new mongoose.Schema({
     image: String,
     content: String,
     fbLink: String,
-    twLink: String
+    twLink: String,
+    active: {
+        type: Boolean,
+        default: false
+    }
 })
 
 const Medias = mongoose.model('Medias', MediasSchema);

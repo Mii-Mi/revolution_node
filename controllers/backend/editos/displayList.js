@@ -1,11 +1,10 @@
-const Editos = require('../../models/Editos')
+const Editos = require('../../../models/Editos')
 
 module.exports = async (req, res) => {
     await Editos.find({}, null, { sort: { _id: -1 } }, (err, edito) => {
-        if (err){
+        if (err) {
             console.log(err);
         }
-        
-        res.render('index', {edito});
+        res.render('backendView/editos/list', {layout: 'admin', edito})
     })
 }

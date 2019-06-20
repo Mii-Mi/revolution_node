@@ -1,3 +1,3 @@
 module.exports = (req, res) => {
-    res.render('backendView/medias/add')
+    res.render('backendView/medias/add', {layout: 'admin'})
 }

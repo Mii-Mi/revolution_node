@@ -39,11 +39,6 @@ const welcome = require('../controllers/frontend/welcome'),
       userProfileEdit = require('../controllers/frontend/userProfileEdit'),
       userProfileUpdate = require('../controllers/frontend/userProfileUpdate')
 
-    // Medias
-      mediaAddForm = require('../controllers/backend/medias/mediaAddForm'),
-      mediaCreate = require('../controllers/backend/medias/mediaCreate'),
-      mediaEdit = require('../controllers/backend/medias/mediaEdit'),
-
     // Articles
       articlesAdd = require('../controllers/frontend/articleAdd'),
       articleCreate = require('../controllers/frontend/articleCreate'),
@@ -75,8 +70,14 @@ const welcome = require('../controllers/frontend/welcome'),
         // Map
       adminWelcome = require('../controllers/backend/adminWelcome'),
         // Medias
+      mediaAddForm = require('../controllers/backend/medias/mediaAddForm'),
+      mediaCreate = require('../controllers/backend/medias/mediaCreate'),
+      mediaEdit = require('../controllers/backend/medias/mediaEdit'),
       mediaUpdate = require('../controllers/backend/medias/mediaUpdate'),
       mediaDelete = require('../controllers/backend/medias/mediaDelete'),
+      mediaList = require('../controllers/backend/medias/list'),
+      mediaActive = require('../controllers/backend/medias/active'),
+      mediaUnactive = require('../controllers/backend/medias/unactive'),
         // Members
       adminAdd = require('../controllers/backend/users/adminAdd'),
       adminDelete = require('../controllers/backend/users/adminDelete'),
@@ -85,7 +86,22 @@ const welcome = require('../controllers/frontend/welcome'),
       memberBanForm = require('../controllers/backend/users/memberBanForm'),
       memberBan = require('../controllers/backend/users/memberBan'),
       memberUnban = require('../controllers/backend/users/memberUnban'),
-      modoAdd = require('../controllers/backend/users/modoAdd')
+      modoAdd = require('../controllers/backend/users/modoAdd'),
+        // Editos
+      editoList = require('../controllers/backend/editos/displayList'),
+      editoAdd = require('../controllers/backend/editos/add'),
+      editoCreate = require('../controllers/backend/editos/create'),
+      editoEdit = require('../controllers/backend/editos/edit'),
+      editoUpdate = require('../controllers/backend/editos/update'),
+      editoDelete = require('../controllers/backend/editos/delete'),
+      editoActive = require('../controllers/backend/editos/active'),
+      editoUnactive = require('../controllers/backend/editos/unactive'),
+        // Notes
+      noteAdd = require('../controllers/backend/notes/add'),
+      noteCreate = require('../controllers/backend/notes/create'),
+      noteEdit = require('../controllers/backend/notes/edit'),
+      noteUpdate = require('../controllers/backend/notes/update'),
+      noteDelete = require('../controllers/backend/notes/delete')
 
 // ########################
 //         Routes       
@@ -101,7 +117,7 @@ router.get('/userProfile/:userId', userProfile)
     // Backend
 router.get('/members/displayList', authModo, memberDisplayList)
 router.get('/members/banlist', authModo, memberBanlist)
-router.get('/admin/welcome', adminAuth, adminWelcome)
+router.get('/admin/welcome', authModo, adminWelcome)
 
 // Users
     // Frontend
@@ -125,6 +141,9 @@ router.post('/medias/create', adminAuth, validForm, mediaCreate)
 router.get('/medias/edit/:id', adminAuth, mediaEdit)
 router.post('/medias/update', adminAuth, validForm, mediaUpdate)
 router.get('/medias/delete/:id', adminAuth, mediaDelete)
+router.get('/medias/list', adminAuth, mediaList)
+router.get('/medias/active/:mediaId', adminAuth, mediaActive)
+router.get('/medias/unactive/:mediaId', adminAuth, mediaUnactive)
 
 // Articles
     // Frontend
@@ -159,5 +178,24 @@ router.post('/mp/response/create/:mpId', auth, mpRespCreate)
 router.get('/mp/response/edit/:mpRespId', auth, mpRespEdit)
 router.post('/mp/response/update/:mpRespId', auth, mpRespUpdate)
 router.get('/mp/response/delete/:mpRespId/:mpId', auth, mpRespDelete)
+
+// Edito
+    // Backend
+router.get('/editos/add', adminAuth, editoAdd)
+router.post('/editos/create', adminAuth, editoCreate)
+router.get('/editos/list', adminAuth, editoList)
+router.get('/editos/edit/:editoId', adminAuth, editoEdit)
+router.post('/editos/update/:editoId', adminAuth, editoUpdate)
+router.get('/editos/delete/:editoId', adminAuth, editoDelete)
+router.get('/editos/active/:editoId', adminAuth, editoActive)
+router.get('/editos/unactive/:editoId', adminAuth, editoUnactive)
+
+// Notes
+    // Backend
+router.get('/notes/add', authModo, noteAdd)
+router.post('/notes/create', authModo, noteCreate)
+router.get('/notes/edit/:noteId', authModo, noteEdit)
+router.post('/notes/update/:noteId', authModo, noteUpdate)
+router.get('/notes/delete/:noteId', authModo, noteDelete)
 
 module.exports = router;

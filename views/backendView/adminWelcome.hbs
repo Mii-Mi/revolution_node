@@ -1,46 +1,45 @@
 <header>
+    {{#if admin}}
     <h1>Panneau d'administration</h1>
+    {{else}}
+    <h1>Panneau de modération</h1>
+    {{/if}}
 </header>
 
 <section class="galCont">
     <article class="bloc article">
-        <h2>module</h2>
-        <p>bla bla</p>
-        <a href="" class="button">Entrer</a>
+        <h2>Membres</h2>
+        <p><a href="/members/displayList" class="button">Liste utilisateurs</a></p>
+        <p><a href="/members/banList" class="button">Membres bannis</a></p>
+        
+    </article>
+    {{#if admin}}
+    <article class="bloc article">
+        <h2>Page d'accueil</h2>
+        <p><a href="/editos/list" class="button">Liste des annonces</a></p>
+        <p><a href="/editos/add" class="button">Ajouter une annonce</a></p>
     </article>
     <article class="bloc article">
-        <h2>module</h2>
-        <p>bla bla</p>
-        <a href="" class="button">Entrer</a>
+        <h2>Medias</h2>
+        <p><a href="/medias/list" class="button">Liste des medias</a></p>
+        <p><a href="/medias/add" class="button">Ajouter un media</a></p>
     </article>
-    <article class="bloc article">
-        <h2>module</h2>
-        <p>bla bla</p>
-        <a href="" class="button">Entrer</a>
-    </article>
-    <article class="bloc article">
-        <h2>module</h2>
-        <p>bla bla</p>
-        <a href="" class="button">Entrer</a>
-    </article>
-    <article class="bloc article">
-        <h2>module</h2>
-        <p>bla bla</p>
-        <a href="" class="button">Entrer</a>
-    </article>
-    <article class="bloc article">
-        <h2>module</h2>
-        <p>bla bla</p>
-        <a href="" class="button">Entrer</a>
-    </article>
-    <article class="bloc article">
-        <h2>module</h2>
-        <p>bla bla</p>
-        <a href="" class="button">Entrer</a>
-    </article>
-    <article class="bloc article">
-        <h2>module</h2>
-        <p>bla bla</p>
-        <a href="" class="button">Entrer</a>
+    {{/if}}
+    <article class="bloc article modSpace">
+        <h2>Notes internes</h2>
+        <p><a href="/notes/add" class="button">Écrire une note</a></p>
+        {{#if note}}
+        {{#each note}}
+            <p class="noteFoot">Par <a href="/userProfile/{{authorId}}">{{author}}</a>, le {{formatDate}}</p>
+            <h4>{{title}}</h4>
+            {{{content}}}
+            {{#if isOwner}}
+                <div class="adminButtonsCont">
+                    <a class="button" href="/notes/edit/{{_id}}">Modifier</a>
+                    <a class="button" href="/notes/delete/{{_id}}">Supprimer</a>
+                </div>
+            {{/if}}
+        {{/each}}
+        {{/if}}
     </article>
 </section>

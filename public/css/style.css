@@ -148,6 +148,9 @@ img{
     background-color: rgba(0, 0, 0, 0.7);
     padding: 1em;
 }
+.separated{
+    margin: 15px auto;
+}
 .stellarnav{
     position: fixed;
     top: 0;

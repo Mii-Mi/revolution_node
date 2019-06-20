@@ -4,6 +4,7 @@
 
 <section class="galCont">
     {{#each media}}
+        {{#if active}}
         <article class="bloc article">
             <a href="{{link}}" target="_blank">
                 <figure>
@@ -22,5 +23,6 @@
             <div class="adminButtonsCont"><a class="button" href="/medias/edit/{{id}}">Modifier</a><a class="button" href="/medias/delete/{{id}}">Supprimer</a></div>
             {{/if}}
         </article>
+        {{/if}}
     {{/each}}
 </section>

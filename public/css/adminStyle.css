@@ -139,7 +139,7 @@ h1,
 h2,
 h3,
 h4 {
-    color: rgb(228, 228, 0);
+    color: rgb(107, 107, 0);
 }
 
 h1 {
@@ -184,6 +184,9 @@ img {
     padding: 1em;
     margin: 40px;
 }
+.separated {
+    margin: 15px auto;
+}
 
 .stellarnav {
     position: fixed;
@@ -200,12 +203,12 @@ button{
     padding-bottom: 15px;
 }
 .button {
+    color: rgb(107, 107, 0);
     display: block;
     height: 35px;
     padding-top: 10px;
     text-align: center;
-    color: lightgoldenrodyellow;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(228, 228, 0, 0.315);
     border-radius: 5px;
     border: 1px solid rgb(228, 228, 0);
     transition-duration: 0.4s;
@@ -250,7 +253,7 @@ footer {
 .article {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
     border-radius: 5px;
     transition-duration: 0.3s;
@@ -299,14 +302,16 @@ article figure img {
     display: inline-block;
     padding: 5px 10px;
 }
-
-
+.input{
+    width: 98%;
+    margin: auto;
+}
 
 .memberTable {
-    border: 1px solid black;
+    border: 2px solid black;
     border-collapse: collapse;
     width: 95%;
-    margin: auto;
+    margin: 15px auto;
 }
 
 .memberTable tr td,
@@ -314,6 +319,18 @@ article figure img {
     border: 1px solid black;
     text-align: center;
     padding: 10px;
+}
+
+/* PANEL ADMIN
+################################# */
+
+.modSpace{
+    grid-column: 1 / 4;
+    grid-row: 2;
+}
+.noteFoot{
+    border-top: 1px solid rgb(107, 107, 0);
+    padding-top: 10px;
 }
 
 @media screen and (max-width: 1240px) {

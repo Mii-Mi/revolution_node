@@ -1,0 +1,31 @@
+<h1>Liste des Medias</h1>
+<p class="bloc"><a href="/medias/add" class="button">Ajouter un media</a></p>
+{{#if media}}
+{{#each media}}
+<table class="memberTable bloc separated">
+    <tr>
+        <th>image</th>
+        <th>nom</th>
+        <th>liens</th>
+        <th>contenu</th>
+        <th>action</th>
+    </tr>
+    <tr>
+        <td><img src="{{image}}"</td>
+        <td>{{title}}</td>
+        <td><p>{{link}}</p><p>{{fbLink}}</p><p>{{twLink}}</p></td>
+        <td>{{{content}}}</td>
+        <td>
+            {{#if active}}
+            <p><a href="/medias/unactive/{{_id}}" class="button danger">Désactiver</a></p>
+            {{else}}
+            <p><a href="/medias/active/{{_id}}" class="button">Activer</a></p>
+            {{/if}}
+            <p><a href="/medias/edit/{{_id}}" class="button modo">Modifier</a></p>
+            <p><a href="/medias/delete/{{_id}}" class="button danger">Supprimer</a></p>
+        </td>
+    </tr>
+
+</table>
+{{/each}}
+{{/if}}

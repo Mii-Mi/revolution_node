@@ -7,20 +7,10 @@
         <li><a href="/userProfile/{{user}}">Mon profil</a></li>
         <li><a href="/mp/list/{{user}}" {{#if newMp}}style="color: red;">Nouveau message !{{else}}>Ma messagerie{{/if}}</a></li>
             {{#if admin }}
-                <li id="adminMenu" class="dropdown"><a href="/admin/welcome">Administrer</a>
-                    <ul>
-                        <li><a href="/medias/add">Ajouter un media</a></li>
-                        <li><a href="/members/displayList">Liste des membres</a></li>
-                        <li><a href="/members/banlist">Liste des bannis</a></li>
-                    </ul>
-                </li>
+                <li id="adminMenu"><a href="/admin/welcome">Administrer</a></li>
             {{/if}}
             {{#if modo }}
-                <li id="adminMenu" class="dropdown"><a href="">Modération</a>
-                    <ul>
-                        <li><a href="/members/displayList">Liste des membres</a></li>
-                    </ul>
-                </li>
+                <li id="adminMenu" class="dropdown"><a href="/admin/welcome">Modération</a></li>
             {{/if}}
         <li id="deco"><a id="linkDeco" href="/users/logout">Déconnexion ({{uName}})</a></li>
         {{else}}
