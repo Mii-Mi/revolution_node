@@ -25,7 +25,7 @@ module.exports = (req, res) => {
                 } else {
                     req.flash('success', 'Edito créé avec succes !');
                 }
-                res.redirect('/')
+                res.redirect('/editos/list')
             })
 
     })
