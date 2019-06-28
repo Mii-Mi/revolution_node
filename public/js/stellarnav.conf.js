@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
     jQuery('.stellarnav').stellarNav({
         theme: 'dark',
-        breakpoint: 960,
-        position: 'right',
+        breakpoint: 1270,
+        position: 'left',
     });
 });

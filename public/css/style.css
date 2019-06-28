@@ -93,6 +93,24 @@
 
 /* GLOBAL
 ################################# */
+    /* Navbar */
+.searchBar {
+    width: 25px;
+    padding: 0;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.searchBar:focus {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(228, 228, 0);
+    border-radius: 5px;
+}
+.searchBar::placeholder{
+    background: center no-repeat url("../images/logos/searchIcon.png");
+}
 
 body, html, h1, h2{
     margin: 0;
@@ -436,11 +454,31 @@ iframe{
     }
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 800px){
+
+    /*USER PROFILE
+    ################################# */
+    .profileCont{
+        flex-direction: column;
+        border: 1px solid rgb(228, 228, 0);
+        border-radius: 5px;
+    }
+    .profileCont aside {
+        width: 100%;
+        border: none;
+        text-align: center;
+        padding: 0;
+    }
+    .profileCont section{
+        width: 100%;
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
 
     h1, h2{
         font-family: serif;
         font-size: 2.5em;
     }
-
 }

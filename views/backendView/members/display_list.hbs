@@ -1,55 +1,56 @@
 <h1>Liste des membres</h1>
-<table class="memberTable bloc">
-    <tr>
-        <th>Lien</th>
-        <th>ID</th>
-        <th>Nom</th>
-        <th>E-mail</th>
-        <th>Groupe</th>
-    </tr>
-    {{#if admins}}
-        {{#each admins}}
+<div class="bloc">
+    <table class="memberTable bloc">
         <tr>
-            <td><a href="/userProfile/{{_id}}">Profil</a></td>
-            <td>{{_id}}</td>
-            <td>{{userName}}</td>
-            <td>{{mail}}</td>
-            <td>Admin</td>
+            <th>Lien</th>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>E-mail</th>
+            <th>Groupe</th>
         </tr>
-        {{/each}}
-    {{/if}}
-    {{#if modos}}
-        {{#each modos}}
-        <tr>
-            <td><a href="/userProfile/{{_id}}">Profil</a></td>
-            <td>{{_id}}</td>
-            <td>{{userName}}</td>
-            <td>{{mail}}</td>
-            <td>Modérateur</td>
-        </tr>
-        {{/each}}
-    {{/if}}
-    {{#if members}}
-        {{#each members}}
-        <tr>
-            <td><a href="/userProfile/{{_id}}">Profil</a></td>
-            <td>{{_id}}</td>
-            <td>{{userName}}</td>
-            <td>{{mail}}</td>
-            <td>Membre</td>
-        </tr>
-        {{/each}}
-    {{/if}}
-    {{#if banned}}
-        {{#each banned}}
-        <tr>
-            <td><a href="/userProfile/{{_id}}">Profil</a></td>
-            <td>{{_id}}</td>
-            <td>{{userName}}</td>
-            <td>{{mail}}</td>
-            <td>Banni</td>
-        </tr>
-        {{/each}}
-    {{/if}}
-
-</table>
+        {{#if admins}}
+            {{#each admins}}
+            <tr>
+                <td><a href="/userProfile/{{_id}}">Profil</a></td>
+                <td>{{_id}}</td>
+                <td>{{userName}}</td>
+                <td>{{mail}}</td>
+                <td>Admin</td>
+            </tr>
+            {{/each}}
+        {{/if}}
+        {{#if modos}}
+            {{#each modos}}
+            <tr>
+                <td><a href="/userProfile/{{_id}}">Profil</a></td>
+                <td>{{_id}}</td>
+                <td>{{userName}}</td>
+                <td>{{mail}}</td>
+                <td>Modérateur</td>
+            </tr>
+            {{/each}}
+        {{/if}}
+        {{#if members}}
+            {{#each members}}
+            <tr>
+                <td><a href="/userProfile/{{_id}}">Profil</a></td>
+                <td>{{_id}}</td>
+                <td>{{userName}}</td>
+                <td>{{mail}}</td>
+                <td>Membre</td>
+            </tr>
+            {{/each}}
+        {{/if}}
+        {{#if banned}}
+            {{#each banned}}
+            <tr>
+                <td><a href="/userProfile/{{_id}}">Profil</a></td>
+                <td>{{_id}}</td>
+                <td>{{userName}}</td>
+                <td>{{mail}}</td>
+                <td>Banni</td>
+            </tr>
+            {{/each}}
+        {{/if}}
+    </table>
+</div>

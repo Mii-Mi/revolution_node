@@ -2,27 +2,30 @@
 
 {{#if banned}}
 {{#each banned}}
-<table class="memberTable bloc">
-    <tr>
-        <th>Lien</th>
-        <th>ID</th>
-        <th>Nom</th>
-        <th>E-mail</th>
-        <th>Groupe</th>
-    </tr>
-    <tr>
-        <td><a href="/userProfile/{{_id}}">Profil</a></td>
-        <td>{{_id}}</td>
-        <td>{{userName}}</td>
-        <td>{{mail}}</td>
-        <td>Banni</td>
-    </tr>
-    <tr>
-        <th colspan="5">Motif du bannissement</th>
-    </tr>
-    <tr>
-        <td colspan="5">{{{banCause}}}</td>
-    </tr>
-</table>
+<div class="bloc">
+    <table class="memberTable bloc">
+        <tr>
+            <th>Lien</th>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>E-mail</th>
+            <th>Groupe</th>
+        </tr>
+        <tr>
+            <td><a href="/userProfile/{{_id}}">Profil</a></td>
+            <td>{{_id}}</td>
+            <td>{{userName}}</td>
+            <td>{{mail}}</td>
+            <td>Banni</td>
+        </tr>
+        <tr>
+            <th colspan="5">Motif du bannissement</th>
+        </tr>
+        <tr>
+            <td colspan="5">{{{banCause}}}</td>
+        </tr>
+    </table>
+</div>
+
 {{/each}}
 {{/if}}

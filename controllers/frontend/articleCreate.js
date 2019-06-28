@@ -6,7 +6,6 @@ module.exports = (req, res) => {
     let date = Date.now()
 
     Users.findById(req.session.userId, (error, user) => {
-        // console.log(req.flash('data')[0]);
         if (error) {
             console.log(error);
         }

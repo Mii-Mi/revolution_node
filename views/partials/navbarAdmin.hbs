@@ -16,5 +16,10 @@
         <li><a href="/mp/list/{{user}}" {{#if newMp}}style="color: red;">Nouveau message !{{else}}>Ma
                 messagerie{{/if}}</a></li>
         <li id="deco"><a id="linkDeco" href="/users/logout">Déconnexion ({{uName}})</a></li>
+        <li>
+            <form class="searchForm">
+                <input class="searchBar" type="text" name="search" id="search" placeholder=" ">
+            </form>
+        </li>
     </ul>
 </nav>
