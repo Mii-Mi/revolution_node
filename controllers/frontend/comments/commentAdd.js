@@ -1,6 +1,6 @@
-const Comments = require('../../models/Comments'),
-      Articles = require('../../models/Articles'),
-      Users = require('../../models/User'),
+const Comments = require('../../../models/Comments'),
+      Articles = require('../../../models/Articles'),
+      Users = require('../../../models/User'),
       dateFormat = require('dateformat')
 
 module.exports = (req, res) => {

@@ -1,6 +1,6 @@
-const MpResp = require('../../models/MpResp'),
-      Mp = require('../../models/Mp'),
-      Users = require('../../models/User'),
+const MpResp = require('../../../models/MpResp'),
+      Mp = require('../../../models/Mp'),
+      Users = require('../../../models/User'),
       dateFormat = require('dateformat')
 
 module.exports = (req, res) => {

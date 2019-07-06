@@ -1,4 +1,4 @@
-const Comments = require('../../models/Comments');
+const Comments = require('../../../models/Comments');
 
 module.exports = async (req, res) => {
 

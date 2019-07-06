@@ -1,5 +1,5 @@
-const Users = require('../../models/User'),
-      Articles = require('../../models/Articles')
+const Users = require('../../../models/User'),
+      Articles = require('../../../models/Articles')
 
 module.exports = async (req, res) => {
 

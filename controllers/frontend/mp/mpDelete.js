@@ -1,5 +1,5 @@
-const Mp = require('../../models/Mp'),
-      MpResp = require('../../models/MpResp')
+const Mp = require('../../../models/Mp'),
+      MpResp = require('../../../models/MpResp')
 
 module.exports = (req, res) => {
 

@@ -1,4 +1,4 @@
-const Medias = require('../../models/Medias')
+const Medias = require('../../../models/Medias')
 
 module.exports = async (req, res) => {
     // console.log(req.flash('data')[0]);

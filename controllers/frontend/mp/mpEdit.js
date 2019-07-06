@@ -1,4 +1,4 @@
-const Mp = require('../../models/Mp');
+const Mp = require('../../../models/Mp');
 
 module.exports = (req, res) => {
 

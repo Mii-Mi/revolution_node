@@ -1,5 +1,5 @@
-const Mp = require('../../models/Mp'),
-      User = require('../../models/User'),
+const Mp = require('../../../models/Mp'),
+      User = require('../../../models/User'),
       dateFormat = require('dateformat')
 
 

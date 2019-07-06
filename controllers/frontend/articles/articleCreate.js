@@ -1,5 +1,5 @@
-const Articles = require('../../models/Articles'),
-      Users = require('../../models/User'),
+const Articles = require('../../../models/Articles'),
+      Users = require('../../../models/User'),
       dateFormat = require('dateformat')
 
 module.exports = (req, res) => {

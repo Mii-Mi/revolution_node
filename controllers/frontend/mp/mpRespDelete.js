@@ -1,20 +1,20 @@
-const Articles = require('../../models/Articles')
+const mpResp = require('../../../models/MpResp')
 
 
 module.exports = (req, res) => {
 
-    Articles.findByIdAndRemove(
-        req.params.articleId,
+    mpResp.findByIdAndRemove(
+        req.params.mpRespId,
         { useFindAndModify: false },
         function (err) {
             if (!err) {
-                console.log('Suppression réussie');
+                console.log('delete ok');
             } else {
                 req.flash('error', 'Échec de la suppression ...');
-                res.redirect('/');
+                res.redirect(`/mp/single/${req.params.mpId}`);
             }
         });
 
     req.flash('success', 'Suppression réussie !');
-    res.redirect('/articles/display');
+    res.redirect(`/mp/single/${req.params.mpId}`);
 }

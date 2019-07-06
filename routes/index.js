@@ -27,9 +27,9 @@ router.use('*', newMpTest)
 
     // Map
 const welcome = require('../controllers/frontend/welcome'),
-      mediaOwnerMap = require('../controllers/frontend/mediaOwnerMap'),
-      galleryDisplay = require('../controllers/frontend/galleryDisplay'),
-      articlesDisplay = require('../controllers/frontend/articlesDisplay'),
+      mediaOwnerMap = require('../controllers/frontend/medias/mediaOwnerMap'),
+      galleryDisplay = require('../controllers/frontend/medias/galleryDisplay'),
+      articlesDisplay = require('../controllers/frontend/articles/articlesDisplay'),
       userProfile = require('../controllers/frontend/userProfile'),
 
     // Users
@@ -37,34 +37,35 @@ const welcome = require('../controllers/frontend/welcome'),
       userLogin = require('../controllers/frontend/userLogin'),
       userLogout = require('../controllers/frontend/userLogout'),
       userProfileEdit = require('../controllers/frontend/userProfileEdit'),
-      userProfileUpdate = require('../controllers/frontend/userProfileUpdate')
+      userProfileUpdate = require('../controllers/frontend/userProfileUpdate'),
+      userForgotPwd = require('../controllers/frontend/userForgotPwd'),
 
     // Articles
-      articlesAdd = require('../controllers/frontend/articleAdd'),
-      articleCreate = require('../controllers/frontend/articleCreate'),
-      articleSingle = require('../controllers/frontend/articleSingle'),
-      articleEdit = require('../controllers/frontend/articleEdit'),
-      articleUpdate = require('../controllers/frontend/articleUpdate'),
-      articleDelete = require('../controllers/frontend/articleDelete'),
+      articlesAdd = require('../controllers/frontend/articles/articleAdd'),
+      articleCreate = require('../controllers/frontend/articles/articleCreate'),
+      articleSingle = require('../controllers/frontend/articles/articleSingle'),
+      articleEdit = require('../controllers/frontend/articles/articleEdit'),
+      articleUpdate = require('../controllers/frontend/articles/articleUpdate'),
+      articleDelete = require('../controllers/frontend/articles/articleDelete'),
 
     // Comments
-      commentAdd = require('../controllers/frontend/commentAdd'),
-      commentEdit = require('../controllers/frontend/commentEdit'),
-      commentUpdate = require('../controllers/frontend/commentUpdate'),
-      commentDelete = require('../controllers/frontend/commentDelete'),
+      commentAdd = require('../controllers/frontend/comments/commentAdd'),
+      commentEdit = require('../controllers/frontend/comments/commentEdit'),
+      commentUpdate = require('../controllers/frontend/comments/commentUpdate'),
+      commentDelete = require('../controllers/frontend/comments/commentDelete'),
 
     // Mp
-      mpAdd = require('../controllers/frontend/mpAdd'),
-      mpCreate = require('../controllers/frontend/mpCreate'),
-      mpListDisplay = require('../controllers/frontend/mpListDisplay'),
-      mpSingleDisplay = require('../controllers/frontend/mpSingleDisplay'),
-      mpEdit = require('../controllers/frontend/mpEdit'),
-      mpUpdate = require('../controllers/frontend/mpUpdate'),
-      mpDelete = require('../controllers/frontend/mpDelete'),
-      mpRespCreate = require('../controllers/frontend/mpRespCreate'),
-      mpRespEdit = require('../controllers/frontend/mpRespEdit'),
-      mpRespUpdate = require('../controllers/frontend/mpRespUpdate'),
-      mpRespDelete = require('../controllers/frontend/mpRespDelete'),
+      mpAdd = require('../controllers/frontend/mp/mpAdd'),
+      mpCreate = require('../controllers/frontend/mp/mpCreate'),
+      mpListDisplay = require('../controllers/frontend/mp/mpListDisplay'),
+      mpSingleDisplay = require('../controllers/frontend/mp/mpSingleDisplay'),
+      mpEdit = require('../controllers/frontend/mp/mpEdit'),
+      mpUpdate = require('../controllers/frontend/mp/mpUpdate'),
+      mpDelete = require('../controllers/frontend/mp/mpDelete'),
+      mpRespCreate = require('../controllers/frontend/mp/mpRespCreate'),
+      mpRespEdit = require('../controllers/frontend/mp/mpRespEdit'),
+      mpRespUpdate = require('../controllers/frontend/mp/mpRespUpdate'),
+      mpRespDelete = require('../controllers/frontend/mp/mpRespDelete'),
 
     // Admin Backend
         // Map
@@ -133,6 +134,7 @@ router.get('/members/banForm/:userId', authModo, memberBanForm)
 router.post('/members/ban/:userId', authModo, memberBan)
 router.get('/members/unban/:userId', authModo, memberUnban)
 router.get('/modos/add/:userId', adminAuth, modoAdd)
+router.get('/password/lost', userForgotPwd)
 
 // Medias
     // Backend

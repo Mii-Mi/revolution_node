@@ -1,5 +1,5 @@
-const User = require('../../models/User'),
-      Articles = require('../../models/Articles');
+const User = require('../../../models/User'),
+      Articles = require('../../../models/Articles');
 
 module.exports = (req, res) => {
     User.findById(req.session.userId, async (error, usr) => {

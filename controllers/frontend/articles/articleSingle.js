@@ -1,6 +1,6 @@
-const Articles = require('../../models/Articles'),
-      Comments = require('../../models/Comments'),
-      Users = require('../../models/User')
+const Articles = require('../../../models/Articles'),
+      Comments = require('../../../models/Comments'),
+      Users = require('../../../models/User')
 
 module.exports = async (req, res) => {
     
