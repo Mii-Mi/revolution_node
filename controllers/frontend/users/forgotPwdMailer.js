@@ -40,7 +40,7 @@ module.exports = (req, res) => {
             
             let mailOptions = {
                 from: '"miimi" <miimi@resistance.cf>', // sender address
-                to: "24340@SpamScoreChecker.com", // list of receivers
+                to: "smilf@resistance.cf", // list of receivers
                 subject: "Mot de passe oublié", // Subject line
                 text: `Pour réinitialiser votre mot de passe, veuillez cliquer le lien suivant, ou le copier dans la barre d'url de votre navigateur.\n
                        resistance.cf/users/password/edit/${lnk}`, // plain text body
