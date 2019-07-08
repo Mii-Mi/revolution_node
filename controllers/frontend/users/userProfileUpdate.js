@@ -1,5 +1,4 @@
-const Profiles = require('../../models/Profiles')
-
+const Profiles = require('../../../models/Profiles')
 
 module.exports = (req, res) => {
 

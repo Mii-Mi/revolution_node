@@ -1,6 +1,6 @@
-const Users = require('../../models/User'),
-      Profiles = require('../../models/Profiles'),
-      Articles = require('../../models/Articles')
+const Users = require('../../../models/User'),
+      Profiles = require('../../../models/Profiles'),
+      Articles = require('../../../models/Articles')
 
 module.exports = (req, res) => {
      

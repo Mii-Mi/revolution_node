@@ -1,5 +1,5 @@
-const User = require('../../models/User'),
-      Profile = require('../../models/Profiles')
+const User = require('../../../models/User'),
+      Profile = require('../../../models/Profiles')
 
 module.exports = (req, res) => {
     if(req.body.pass === req.body.pass2){

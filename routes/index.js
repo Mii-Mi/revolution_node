@@ -30,15 +30,16 @@ const welcome = require('../controllers/frontend/welcome'),
       mediaOwnerMap = require('../controllers/frontend/medias/mediaOwnerMap'),
       galleryDisplay = require('../controllers/frontend/medias/galleryDisplay'),
       articlesDisplay = require('../controllers/frontend/articles/articlesDisplay'),
-      userProfile = require('../controllers/frontend/userProfile'),
+      userProfile = require('../controllers/frontend/users/userProfile'),
 
     // Users
-      userCreate = require('../controllers/frontend/userCreate'),
-      userLogin = require('../controllers/frontend/userLogin'),
-      userLogout = require('../controllers/frontend/userLogout'),
-      userProfileEdit = require('../controllers/frontend/userProfileEdit'),
-      userProfileUpdate = require('../controllers/frontend/userProfileUpdate'),
-      userForgotPwd = require('../controllers/frontend/userForgotPwd'),
+      userCreate = require('../controllers/frontend/users/userCreate'),
+      userLogin = require('../controllers/frontend/users/userLogin'),
+      userLogout = require('../controllers/frontend/users/userLogout'),
+      userProfileEdit = require('../controllers/frontend/users/userProfileEdit'),
+      userProfileUpdate = require('../controllers/frontend/users/userProfileUpdate'),
+      userForgotPwdform = require('../controllers/frontend/users/forgotPwdForm'),
+      userForgotPwdMailer = require('../controllers/frontend/users/forgotPwdMailer'),
 
     // Articles
       articlesAdd = require('../controllers/frontend/articles/articleAdd'),
@@ -127,6 +128,8 @@ router.post('/users/login', userLogin)
 router.get('/users/logout', auth, userLogout)
 router.get('/users/profile/edit/:userId', auth, userProfileEdit)
 router.post('/users/profile/update/:profileId', auth, userProfileUpdate)
+router.get('/password/lost/form', userForgotPwdform)
+router.post('/password/lost', userForgotPwdMailer)
     // Backend
 router.get('/admins/add/:userId', adminAuth, adminAdd)
 router.get('/admins/delete/:userId', adminAuth, adminDelete)
@@ -134,7 +137,6 @@ router.get('/members/banForm/:userId', authModo, memberBanForm)
 router.post('/members/ban/:userId', authModo, memberBan)
 router.get('/members/unban/:userId', authModo, memberUnban)
 router.get('/modos/add/:userId', adminAuth, modoAdd)
-router.get('/password/lost', userForgotPwd)
 
 // Medias
     // Backend
