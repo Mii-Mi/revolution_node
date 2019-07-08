@@ -36,16 +36,16 @@ module.exports = (req, res) => {
                     'MY-CUSTOM-METHOD': myCustomMethod
                 }
             });
-            console.log(usr._id + usr.lastVisit);
+            const lnk = usr._id + usr.lastVisit;
             
             let mailOptions = {
                 from: '"miimi" <miimi@resistance.cf>', // sender address
-                to: "test-iavb3@mail-tester.com", // list of receivers
+                to: "peigne.cecile@free.fr", // list of receivers
                 subject: "Mot de passe oublié", // Subject line
                 text: `Pour réinitialiser votre mot de passe, veuillez cliquer le lien suivant, ou le copier dans la barre d'url de votre navigateur.\n
-                       resistance.cf/users/password/edit/${usr._id + usr.lastVisit}`, // plain text body
+                       resistance.cf/users/password/edit/${lnk}`, // plain text body
                 html: `<p>Pour réinitialiser votre mot de passe, veuillez cliquer le lien suivant, ou le copier dans la barre d\'url de votre navigateur.</p>\
-                       <a href="resistance.cf/users/password/edit/${usr._id + usr.lastVisit}">resistance.cf/users/password/edit/${usr._id + usr.lastVisit}</a>`// html body
+                       <a href="resistance.cf/users/password/edit/${lnk}">resistance.cf/users/password/edit/${usr._id + usr.lastVisit}</a>`// html body
             };
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
