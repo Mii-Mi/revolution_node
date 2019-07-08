@@ -9,6 +9,7 @@ module.exports = (req, res) => {
             req.flash('error', 'Erreur : Aucun utilisateur n\'a été trouvé pour cette adresse mail')
             res.redirect('/password/lost/form')
         }else{
+            
             async function myCustomMethod(ctx){
                 let cmd = await ctx.sendCommand(
                     'AUTH PLAIN ' +
@@ -37,7 +38,7 @@ module.exports = (req, res) => {
                 }
             });
             const lnk = usr._id + usr.lastVisit;
-            
+
             let mailOptions = {
                 from: '"miimi" <miimi@resistance.cf>', // sender address
                 to: "smilf@resistance.cf", // list of receivers
@@ -56,7 +57,7 @@ module.exports = (req, res) => {
                     res.redirect('/')
                 }
             })
-                }
+        }
     })
 
 
