@@ -46,7 +46,7 @@ module.exports = (req, res) => {
                 text: `Pour réinitialiser votre mot de passe, veuillez cliquer le lien suivant, ou le copier dans la barre d'url de votre navigateur.\n
                        resistance.cf/users/password/edit/${lnk}`, // plain text body
                 html: `<p>Pour réinitialiser votre mot de passe, veuillez cliquer le lien suivant, ou le copier dans la barre d\'url de votre navigateur.</p>\
-                       <a href="resistance.cf/users/password/edit/${lnk}">resistance.cf/users/password/edit/${lnk}</a>`// html body
+                       <a href="https://resistance.cf/users/password/edit/${lnk}">resistance.cf/users/password/edit/${lnk}</a>`// html body
             };
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
