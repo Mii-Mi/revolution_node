@@ -14,12 +14,12 @@ module.exports = (req, res) => {
                 req.flash('succes', 'Succès ! Vous pouvez maintenant vous connecter avec votre nouveau mot de passe !')
                 res.redirect('/')
             }
-        })
-        upUser.pre('save', function (next) {
-            const user = this;
-            bcrypt.hash(user.pass, 10, (error, encrypted) => {
-                user.pass = encrypted;
-                next()
+            upUser.pre('save', function (next) {
+                const user = this;
+                bcrypt.hash(user.pass, 10, (error, encrypted) => {
+                    user.pass = encrypted;
+                    next()
+                })
             })
         })
     }
