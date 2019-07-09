@@ -6,9 +6,9 @@ module.exports = (req, res) => {
 
     if (req.params.usrTstamp === usr.lastVisit && req.body.pass === req.body.pass2){
 
-        password = req.body.pass
+        const password = req.body.pass
         bcrypt.hash(password, 10, (hash) => {
-            req.body.password = hash
+            req.body.pass = hash
 
             Users.findByIdAndUpdate(usr._id, { 'pass': req.body.pass}, (err, upUser) => {
                 if (err) {
