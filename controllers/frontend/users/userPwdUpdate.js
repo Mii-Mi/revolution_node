@@ -5,7 +5,7 @@ module.exports = (req, res) => {
     const usr = Users.findById(req.params.usrId)
 
     if (req.params.usrTstamp === usr.lastVisit && req.body.pass === req.body.pass2){
-        Users.findByIdAndUpdate(usr._id, { 'pass': bcrypt.hash(req.body.pass, 10, (err, encrypted) => {pass = encrypted})}, (err, upUser) => {
+        Users.findByIdAndUpdate(usr._id, { 'pass': bcrypt.hash(req.body.pass, 10, (err, encrypted) => {echo(`pass: ${encrypted}`)})}, (err, upUser) => {
             if (err) {
                 console.log(err);
                 req.flash('error', 'Une erreur est survenue... veuillez réessayer.')
