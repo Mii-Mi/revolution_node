@@ -15,7 +15,7 @@ module.exports = (req, res) => {
             req.body.pass = hash
             console.log(req.body.pass);
 
-            Users.findByIdAndUpdate(usr._id, { 'pass': req.body.pass}, (err, upUser) => {
+            Users.findByIdAndUpdate(req.params.usrId, { 'pass': req.body.pass}, (err, upUser) => {
                 if (err) {
                     console.log(err);
                     req.flash('error', 'Une erreur est survenue... veuillez réessayer.')
