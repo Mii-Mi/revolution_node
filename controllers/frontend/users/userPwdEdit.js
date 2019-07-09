@@ -5,6 +5,8 @@ module.exports = (req, res) => {
         if (err){
             console.log(err);
         }else{
+            console.log(usr._id);
+            
             res.render('frontendView/users/pwdEdit', {usr})
         }
     })
