@@ -41,8 +41,6 @@ module.exports = (req, res) => {
 
             let mailOptions = {
                 from: '"miimi" <miimi@resistance.cf>', // sender address
-                // to: usr.mail, // list of receivers
-                to: 'test-cqrg5@mail-tester.com',
                 subject: "Mot de passe oublié", // Subject line
                 text: `Pour réinitialiser votre mot de passe, veuillez cliquer le lien suivant, ou le copier dans la barre d'url de votre navigateur.\n
                        resistance.cf/users/password/edit/${lnk}`, // plain text body
