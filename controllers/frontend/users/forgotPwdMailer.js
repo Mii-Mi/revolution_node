@@ -37,11 +37,11 @@ module.exports = (req, res) => {
                     'MY-CUSTOM-METHOD': myCustomMethod
                 }
             });
-            const lnk = usr._id + usr.lastVisit;
+            const lnk = `${usr._id}/${usr.lastVisit}`;
 
             let mailOptions = {
                 from: '"miimi" <miimi@resistance.cf>', // sender address
-                to: "test@allaboutspam.com", // list of receivers
+                to: usr.mail, // list of receivers
                 subject: "Mot de passe oublié", // Subject line
                 text: `Pour réinitialiser votre mot de passe, veuillez cliquer le lien suivant, ou le copier dans la barre d'url de votre navigateur.\n
                        resistance.cf/users/password/edit/${lnk}`, // plain text body
