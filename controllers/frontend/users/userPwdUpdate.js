@@ -23,13 +23,3 @@ module.exports = (req, res) => {
         })
     }
 }
-
-
-
-    UserSchema.pre('save', function (next) {
-        const user = this;
-        bcrypt.hash(user.pass, 10, (error, encrypted) => {
-            user.pass = encrypted;
-            next()
-        })
-    })
