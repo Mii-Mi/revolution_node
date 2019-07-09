@@ -5,7 +5,7 @@ module.exports = (req, res) => {
     const usr = Users.findById(req.params.usrId)
 
     if (req.params.usrTstamp === usr.lastVisit && req.body.pass === req.body.pass2){
-        Users.findByIdAndUpdate(usr._id, {'pass': req.body.pass}, (err, upUser) => {
+        Users.findByIdAndUpdate(usr._id, { 'pass': bcrypt.hash(req.body.pass, 10)}, (err, upUser) => {
             if (err) {
                 console.log(err);
                 req.flash('error', 'Une erreur est survenue... veuillez réessayer.')
@@ -14,13 +14,6 @@ module.exports = (req, res) => {
                 req.flash('succes', 'Succès ! Vous pouvez maintenant vous connecter avec votre nouveau mot de passe !')
                 res.redirect('/')
             }
-            upUser.pre('save', function (next) {
-                const user = this;
-                bcrypt.hash(user.pass, 10, (error, encrypted) => {
-                    user.pass = encrypted;
-                    next()
-                })
-            })
         })
     }
 }
