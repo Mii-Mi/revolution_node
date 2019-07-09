@@ -41,6 +41,7 @@ const welcome = require('../controllers/frontend/welcome'),
       userForgotPwdform = require('../controllers/frontend/users/forgotPwdForm'),
       userForgotPwdMailer = require('../controllers/frontend/users/forgotPwdMailer'),
       userPwdEdit = require('../controllers/frontend/users/userPwdEdit'),
+      userPwdupdate = require('../controllers/frontend/users/userPwdUpdate'),
 
     // Articles
       articlesAdd = require('../controllers/frontend/articles/articleAdd'),
@@ -132,6 +133,7 @@ router.post('/users/profile/update/:profileId', auth, userProfileUpdate)
 router.get('/password/lost/form', userForgotPwdform)
 router.post('/password/lost', userForgotPwdMailer)
 router.get('/users/password/edit/:usrId/:usrTstamp', userPwdEdit)
+router.post('/users/password/update/:usrId', userPwdupdate)
     // Backend
 router.get('/admins/add/:userId', adminAuth, adminAdd)
 router.get('/admins/delete/:userId', adminAuth, adminDelete)
