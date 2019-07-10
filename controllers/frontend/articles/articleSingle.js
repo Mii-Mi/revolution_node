@@ -4,12 +4,16 @@ const Articles = require('../../../models/Articles'),
 
 module.exports = async (req, res) => {
     
+    
+
     Articles.findById(req.params.articleId, async (error, article) => {
         if(error){
             console.log(error);
         }
 
         req.session[`read` + req.params.articleId] = Date.now()
+
+        let title = `Article : ${article.title} - `
 
         let userIsAdmin = false,
             userIsBanned = false,
@@ -97,7 +101,7 @@ module.exports = async (req, res) => {
                         })
                     }
                 }
-                res.render('frontendView/articleSingle', { isOwner, userIsAdmin, userIsModo, userIsMember, userIsBanned, article, comment })
+                res.render('frontendView/articleSingle', { isOwner, userIsAdmin, userIsModo, userIsMember, userIsBanned, article, comment, title })
             })
         })
     });

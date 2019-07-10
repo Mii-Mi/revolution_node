@@ -3,15 +3,18 @@ const Users = require('../../../models/User'),
       Articles = require('../../../models/Articles')
 
 module.exports = (req, res) => {
-     
+    
+    
     let userIsAdmin = false,
-        userIsBanned = false,
-        userIsModo = false,
-        userIsMember = false,
-        isOwner = false
-
+    userIsBanned = false,
+    userIsModo = false,
+    userIsMember = false,
+    isOwner = false
+    
     Users.findById(req.params.userId, (error, usr) => {
-        // console.log(req.flash('data')[0]);
+
+        let title = `Profil de ${usr.userName}`
+
         if(error) {
             console.log(error);
 
@@ -43,7 +46,7 @@ module.exports = (req, res) => {
                 if (err){
                     console.log(err);
                 }
-                res.render('frontendView/userProfile', { usr, profile, isOwner, userIsAdmin, userIsModo, userIsMember, userIsBanned, article })
+                res.render('frontendView/userProfile', { usr, profile, isOwner, userIsAdmin, userIsModo, userIsMember, userIsBanned, article, title })
             })
         })
     })

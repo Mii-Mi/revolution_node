@@ -6,6 +6,7 @@ module.exports = (req, res) => {
         if (err){
             console.log(err);
         }
+        let title = `Bannir ${banned.userName}`
         res.render('backendView/members/banForm', {layout: 'admin.hbs', banned})
     })
 }

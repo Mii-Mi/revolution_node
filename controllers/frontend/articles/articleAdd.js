@@ -1,3 +1,4 @@
 module.exports = (req, res) => {
-    res.render('frontendView/articles/add')
+    let title = 'Ajouter un article - '
+    res.render('frontendView/articles/add', {title})
 }

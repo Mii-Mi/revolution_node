@@ -1,3 +1,4 @@
 module.exports = (req, res) => {
-    res.render('backendView/editos/add', {layout: 'admin'})
+    let title = 'Ajouter un édito'
+    res.render('backendView/editos/add', {layout: 'admin', title})
 }

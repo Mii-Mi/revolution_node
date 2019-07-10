@@ -3,6 +3,7 @@ const Mp = require('../../../models/Mp'),
 
 module.exports = async (req, res) => {
 
+    let title = 'Boîte de messagerie privée - '
     await Mp.find({ $or: [{ 'authorId': req.params.userId }, { 'destId': req.params.userId }] }, null, { sort: { tStamp: -1 } }, (error, mp) => {
 
         for (i = 0; i < mp.length; i++) {
@@ -36,15 +37,6 @@ module.exports = async (req, res) => {
                 }
             }
         }
-
-        if (req.flash('data')[0] == 'admin') {
-            const admin = true
-            res.render('frontendView/private/listDisplay', { mp, admin })
-        } else if (req.flash('data')[0] == 'member') {
-            const member = true
-            res.render('frontendView/private/listDisplay', { mp, member })
-        } else {
-            res.render('frontendView/private/listDisplay', { mp })
-        }
+        res.render('frontendView/private/listDisplay', { mp, title })
     })
 }

@@ -1,6 +1,7 @@
 const Notes = require('../../models/Notes')
 
 module.exports = async (req, res) => {
+    let title = 'Panneau d\'administration - '
 
     await Notes.find({}, null, {sort :{_id: -1}}, (err, note) => {
 

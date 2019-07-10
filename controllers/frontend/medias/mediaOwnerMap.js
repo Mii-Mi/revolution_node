@@ -1,3 +1,4 @@
 module.exports = (req, res) => {
-    res.render('frontendView/mediaOwnerMap')
+    let title = 'Propriétaires des medias mainstream en France - '
+    res.render('frontendView/mediaOwnerMap', {title})
 }

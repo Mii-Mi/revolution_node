@@ -5,9 +5,10 @@ module.exports = (req, res) => {
         if (err){
             console.log(err);
         }else{
+            let title = `Modifier le mot de passe de ${usr.userName}`
             console.log(usr._id);
             
-            res.render('frontendView/users/pwdEdit', {usr})
+            res.render('frontendView/users/pwdEdit', {usr, title})
         }
     })
 }

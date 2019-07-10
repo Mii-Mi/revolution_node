@@ -1,9 +1,9 @@
 const Medias = require('../../../models/Medias')
 
 module.exports = async (req, res) => {
-    // console.log(req.flash('data')[0]);
     
+    let title = 'Liste de medias libres - '
     const media = await Medias.find({})
 
-    res.render('frontendView/gallery', { media })
+    res.render('frontendView/gallery', { media, title })
 }

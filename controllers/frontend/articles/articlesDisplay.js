@@ -3,6 +3,8 @@ const Users = require('../../../models/User'),
 
 module.exports = async (req, res) => {
 
+    let title = 'Fil d\'actualités - '
+
     await Articles.find({}, null, { sort: { tStamp: -1 } }, async (err, article) => {
 
         if(err){
@@ -73,6 +75,6 @@ module.exports = async (req, res) => {
                 
             })
         }
-        res.render('frontendView/articles', { article })
+        res.render('frontendView/articles', { article, title })
     })
 }

@@ -1,3 +1,4 @@
 module.exports = (req, res) => {
-    res.render('frontendView/users/forgotPwdForm')
+    let title = 'Mot de pass oublié : saisie adresse mail - '
+    res.render('frontendView/users/forgotPwdForm', title)
 }

@@ -1,6 +1,7 @@
 const Users = require('../../../models/User')
 
 module.exports = (req, res) => {
+    let title ='Liste des membres - '
     
     Users.find({userGroup: 0}, (error, admins) => {
         
@@ -24,7 +25,7 @@ module.exports = (req, res) => {
 
                     if (res.locals.admin === true || res.locals.modo === true) {
                         
-                        res.render('backendView/members/display_list', { layout: 'admin.hbs', admins, modos, members, banned })
+                        res.render('backendView/members/display_list', { layout: 'admin.hbs', admins, modos, members, banned, title })
                     } else {
                         req.flash('error', 'Vous devez être administrateur pour voir cette page !')
                     }

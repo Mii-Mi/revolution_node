@@ -1,3 +1,4 @@
 module.exports = (req, res) => {
-    res.render('backendView/medias/add', {layout: 'admin'})
+    let title = 'Ajouter un media - '
+    res.render('backendView/medias/add', {layout: 'admin', title})
 }
