@@ -18,6 +18,6 @@ module.exports = async (req, res) => {
                 }
             }
         }
-        res.render('backendView/adminWelcome', {layout: 'admin', note})
+        res.render('backendView/adminWelcome', {layout: 'admin', note, title})
     })
 }

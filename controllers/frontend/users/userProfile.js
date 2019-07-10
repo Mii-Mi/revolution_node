@@ -13,7 +13,7 @@ module.exports = (req, res) => {
     
     Users.findById(req.params.userId, (error, usr) => {
 
-        let title = `Profil de ${usr.userName}`
+        let title = `Profil de ${usr.userName} - `
 
         if(error) {
             console.log(error);
