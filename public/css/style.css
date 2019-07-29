@@ -206,10 +206,18 @@ img{
 .button.modo:hover{
     background-color: rgba(11, 36, 0, 0.7);
 }
+.modalButton{
+    display: inline-block;
+    padding: 5px 10px;
+    width: unset;
+}
 footer{
     display: flex;
     justify-content: space-between;
     padding-top: 2em;
+}
+input{
+    width: 98%;
 }
 /* ckeditor */
 .cke_top{
@@ -337,8 +345,9 @@ iframe{
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    height: 75vh;
+    min-height: 75vh;
     margin-top: 100px;
+    padding-top: 150px;
 }
 .formContainer .button {
     display: inline-block;
@@ -472,6 +481,9 @@ iframe{
     .profileCont section{
         width: 100%;
         padding-left: 0;
+    }
+    .formContainer{
+        padding-top: 290px;
     }
 }
 
