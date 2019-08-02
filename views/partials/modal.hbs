@@ -1,28 +1,32 @@
-<aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-modal="false" style="display: none;">
-    <div class="modal-wrapper bloc js-modal-stop">
-        <form id="login-form" method="POST" action="/users/login">
-            <p><label for="userName">Entrez votre nom :</label><br />
-            <input type="text" name="userName" id="userNameLog" /></p>
-            <p><label for="pass">Entrez votre mot de passe :</label>
-            <input type="password" name="pass" id="passLog" /></p>
-            <p><input class="modalButton" type="submit" value="Envoyer" /><button class="js-modal-close">Annuler</button></p>
-        </form>
+<aside>
+    <div id="modal1" class="modal" aria-hidden="true" role="dialog" aria-modal="false" style="display: none;">
+        <div class="modal-wrapper bloc js-modal-stop">
+            <form id="login-form" method="POST" action="/users/login">
+                <p><label for="userName">Entrez votre nom :</label><br />
+                <input type="text" name="userName" id="userNameLog" /></p>
+                <p><label for="pass">Entrez votre mot de passe :</label>
+                <input type="password" name="pass" id="passLog" /></p>
+                <p><input class="modalButton" type="submit" value="Envoyer" /><button class="js-modal-close">Annuler</button></p>
+            </form>
         <a href="/password/lost/form">Mot de passe oublié</a>
+        </div>
     </div>
 </aside>
 
-<aside id="modal2" class="modal" aria-hidden="true" role="dialog" aria-modal="false" style="display: none;">
-    <div class="modal-wrapper bloc js-modal-stop">
-        <form id="register-form" method="POST" action="/users/add" >
-            <p><label for="userName">Entrez votre nom :</label><br />
-            <input type="text" name="userName" id="userName" value="{{messages.data.userName}}"/></p>
-            <p><label for="userMail">Entrez votre adresse mail :</label><br />
-                <input type="email" name="mail" id="mail" value="{{messages.data.mail}}" /></p>
-            <p><label for="password">Entrez votre mot de passe :</label>
-                <input type="password" name="pass" id="pass" /></p>
-            <p><label for="password2">Confirmez votre mot de passe :</label>
-                <input type="password" name="pass2" id="pass2" /></p>
-            <p><input class="modalButton" type="submit" value="Envoyer" /><button class="js-modal-close">Annuler</button></p>
-        </form>
+<aside>
+    <div id="modal2" class="modal" aria-hidden="true" role="dialog" aria-modal="false" style="display: none;">
+        <div class="modal-wrapper bloc js-modal-stop">
+            <form id="register-form" method="POST" action="/users/add" >
+                <p><label for="userName">Entrez votre nom :</label><br />
+                <input type="text" name="userName" id="userName" value="{{messages.data.userName}}"/></p>
+                <p><label for="mail">Entrez votre adresse mail :</label><br />
+                    <input type="email" name="mail" id="mail" value="{{messages.data.mail}}" /></p>
+                <p><label for="pass">Entrez votre mot de passe :</label>
+                    <input type="password" name="pass" id="pass" /></p>
+                <p><label for="pass2">Confirmez votre mot de passe :</label>
+                    <input type="password" name="pass2" id="pass2" /></p>
+                <p><input class="modalButton" type="submit" value="Envoyer" /><button class="js-modal-close">Annuler</button></p>
+            </form>
+        </div>
     </div>
 </aside>
