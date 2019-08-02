@@ -316,6 +316,7 @@ article figure img {
     border-radius: 5px;
     height: 75vh;
     margin-top: 100px;
+    padding-top: 160px;
 }
 
 .formContainer .button {
@@ -365,6 +366,20 @@ article figure img {
     }
 }
 
+@media screen and (max-width : 800px){
+    
+    .formContainer {
+        padding-top: 240px;
+    }
+}
+
+@media screen and (max-width : 500px) {
+
+    .formContainer {
+        padding-top: 330px;
+    }
+}
+
 @media screen and (max-width: 300px) {
 
     h1,
@@ -372,5 +387,4 @@ article figure img {
         font-family: serif;
         font-size: 2.5em;
     }
-
 }

@@ -1,6 +1,7 @@
 <nav class="stellarnav">
     <ul>
         <li><a href="/">Retour site</a></li>
+        <li><a href="/admin/welcome">Retour panneau</a></li>
         <li><a class="dropdown"href="">Membres</a>
             <ul>
                 <li><a href="/members/displayList">Liste des membres</a></li>
@@ -16,10 +17,10 @@
         <li><a href="/mp/list/{{user}}" {{#if newMp}}style="color: red;">Nouveau message !{{else}}>Ma
                 messagerie{{/if}}</a></li>
         <li id="deco"><a id="linkDeco" href="/users/logout">Déconnexion ({{uName}})</a></li>
-        <li>
+        {{!-- <li>
             <form class="searchForm">
                 <input class="searchBar" type="text" name="search" id="search" placeholder=" ">
             </form>
-        </li>
+        </li> --}}
     </ul>
 </nav>
