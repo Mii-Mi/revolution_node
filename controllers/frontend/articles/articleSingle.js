@@ -101,7 +101,7 @@ module.exports = async (req, res) => {
                         })
                     }
                 }
-                res.render('frontendView/articleSingle', { isOwner, userIsAdmin, userIsModo, userIsMember, userIsBanned, article, comment, title })
+                res.render('frontendView/articles/articleSingle', { isOwner, userIsAdmin, userIsModo, userIsMember, userIsBanned, article, comment, title })
             })
         })
     });

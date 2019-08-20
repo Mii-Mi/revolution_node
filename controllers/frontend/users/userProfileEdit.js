@@ -8,6 +8,6 @@ module.exports = (req, res) => {
         if (error){
             console.log(error);
         }
-        res.render('frontendView/userProfileEdit', {profile, title})
+        res.render('frontendView/users/userProfileEdit', {profile, title})
     })
 }

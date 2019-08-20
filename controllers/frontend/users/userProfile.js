@@ -46,7 +46,7 @@ module.exports = (req, res) => {
                 if (err){
                     console.log(err);
                 }
-                res.render('frontendView/userProfile', { usr, profile, isOwner, userIsAdmin, userIsModo, userIsMember, userIsBanned, article, title })
+                res.render('frontendView/users/userProfile', { usr, profile, isOwner, userIsAdmin, userIsModo, userIsMember, userIsBanned, article, title })
             })
         })
     })

@@ -75,6 +75,6 @@ module.exports = async (req, res) => {
                 
             })
         }
-        res.render('frontendView/articles', { article, title })
+        res.render('frontendView/articles/articles', { article, title })
     })
 }
