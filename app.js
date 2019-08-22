@@ -50,6 +50,6 @@ app.use(express.static('public'));
 //         Run App
 // ########################
 
-app.listen(3001, () => {
+module.exports = app.listen(3001, () => {
     console.log('Le serveur tourne sur le port 3001');
 });
