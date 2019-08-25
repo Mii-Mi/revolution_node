@@ -3,9 +3,9 @@
         <div class="modal-wrapper bloc js-modal-stop">
             <form id="login-form" method="POST" action="/users/login">
                 <p><label for="userName">Entrez votre nom :</label><br />
-                <input type="text" name="userName" id="userNameLog" /></p>
+                <input type="text" name="userName" id="userNameLog" required /></p>
                 <p><label for="pass">Entrez votre mot de passe :</label>
-                <input type="password" name="pass" id="passLog" /></p>
+                <input type="password" name="pass" id="passLog" required /></p>
                 <p><input class="modalButton" type="submit" value="Envoyer" /><button class="js-modal-close">Annuler</button></p>
             </form>
         <a href="/password/lost/form">Mot de passe oublié</a>
@@ -18,13 +18,13 @@
         <div class="modal-wrapper bloc js-modal-stop">
             <form id="register-form" method="POST" action="/users/add" >
                 <p><label for="userName">Entrez votre nom :</label><br />
-                <input type="text" name="userName" id="userName" value="{{messages.data.userName}}"/></p>
+                <input type="text" name="userName" id="userName" value="{{messages.data.userName}}"required /></p>
                 <p><label for="mail">Entrez votre adresse mail :</label><br />
-                    <input type="email" name="mail" id="mail" value="{{messages.data.mail}}" /></p>
+                    <input type="email" name="mail" id="mail" value="{{messages.data.mail}}" required /></p>
                 <p><label for="pass">Entrez votre mot de passe :</label>
-                    <input type="password" name="pass" id="pass" /></p>
+                    <input type="password" name="pass" id="pass" required /></p>
                 <p><label for="pass2">Confirmez votre mot de passe :</label>
-                    <input type="password" name="pass2" id="pass2" /></p>
+                    <input type="password" name="pass2" id="pass2" required /></p>
                 <p><input class="modalButton" type="submit" value="Envoyer" /><button class="js-modal-close">Annuler</button></p>
             </form>
         </div>

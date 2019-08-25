@@ -28,6 +28,7 @@ app.use(expressSession({
     name: 'biscuit',
     saveUninitialized: true,
     resave: false,
+    // cookie: { secure: true },
     store: new mongoStore(
         { mongooseConnection: mongoose.connection }
     )
