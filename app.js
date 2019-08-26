@@ -1,6 +1,7 @@
 const express = require('express'),
       app = express(),
-      routes = require('./routes/index')
+      routes = require('./routes/index'),
+      helmet = require('helmet')
 
 const exphbs = require('express-handlebars'),
       mongoose = require('mongoose'),
@@ -22,6 +23,8 @@ mongoose.set('useNewUrlParser', true)
 mongoose.set('useFindAndModify', false)
 mongoose.set('useCreateIndex', true)
 mongoose.connect('mongodb://localhost:27017/revolution');
+
+app.use(helmet())
 
 app.use(expressSession({
     secret: 'securite',
