@@ -21,6 +21,12 @@ module.exports = async (req, res) => {
                         ...artBody,
                         read: true
                     }
+                }else{
+
+                    article[i] = {
+                        ...artBody,
+                        read: false
+                    }
                 }
             } else {
                 article[i] = {
