@@ -1,0 +1,1061 @@
+{
+    "info": {
+      "title": "resistance API REST documentation",
+      "version": "2.0.0",
+      "license": {
+        "name": "ISC"
+      },
+      "description": "[Specification JSON](/api-spec)\n\nfree media"
+    },
+    "host": "resistance.cf",
+    "tags":[
+        {
+            "name":"welcome",
+            "description":"welcome page manager"
+        },
+        {
+            "name":"media",
+            "description":"medias manager"
+        },
+        {
+            "name":"users",
+            "description":"users manager"
+        },
+        {
+            "name":"articles",
+            "description":"articles manager"
+        },
+        {
+            "name":"comments",
+            "description":"comments manager"
+        },
+        {
+            "name":"mp",
+            "description":"mp manager"
+        },
+        {
+            "name":"editos",
+            "description":"editos manager"
+        },
+        {
+            "name":"notes",
+            "description":"notes manager"
+        }
+    ],
+    "paths": {
+      "/": {
+        "get": {
+          "tags":["welcome"],
+          "summary": "/",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "304": {}
+          }
+        }
+      },
+      "/mediaOwnerMap": {
+        "get": {
+          "tags":["media"],
+          "summary": "/mediaOwnerMap",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/galleryDisplay": {
+        "get": {
+          "tags":["media"],
+          "summary": "/galleryDisplay",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/articles/display": {
+        "get": {
+          "tags":["articles"],
+          "summary": "/articles/display",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "304": {}
+          }
+        }
+      },
+      "/userProfile/{userId}": {
+        "get": {
+          "tags":["users"],
+          "summary": "/userProfile/{userId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/members/displayList": {
+        "get": {
+          "tags":["users"],
+          "summary": "/members/displayList",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/members/banlist": {
+        "get": {
+          "tags":["users"],
+          "summary": "/members/banlist",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/admin/welcome": {
+        "get": {
+          "tags":["welcome"],
+          "summary": "/admin/welcome",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/users/add": {
+        "post": {
+          "tags":["users"],
+          "summary": "/users/add",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "userName",
+              "in": "body",
+              "required": true
+            },
+            {
+              "name": "mail",
+              "in": "body",
+              "required": true
+            },
+            {
+              "name": "pass",
+              "in": "body",
+              "required": true
+            },
+            {
+              "name": "pass2",
+              "in": "body",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/users/login": {
+        "post": {
+          "tags":["users"],
+          "summary": "/users/login",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/users/logout": {
+        "get": {
+          "tags":["users"],
+          "summary": "/users/logout",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/users/profile/edit/{userId}": {
+        "get": {
+          "tags":["users"],
+          "summary": "/users/profile/edit/{userId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/users/profile/update/{profileId}": {
+        "post": {
+          "tags":["users"],
+          "summary": "/users/profile/update/{profileId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "profileId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/password/lost/form": {
+        "get": {
+          "tags":["users"],
+          "summary": "/password/lost/form",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/password/lost": {
+        "post": {
+          "tags":["users"],
+          "summary": "/password/lost",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/users/password/edit/{usrId}/{usrTstamp}": {
+        "get": {
+          "tags":["users"],
+          "summary": "/users/password/edit/{usrId}/{usrTstamp}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "usrId",
+              "in": "path",
+              "required": true
+            },
+            {
+              "name": "usrTstamp",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/users/password/update/{usrId}": {
+        "post": {
+          "tags":["users"],
+          "summary": "/users/password/update/{usrId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "usrId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/admins/add/{userId}": {
+        "get": {
+          "tags":["users"],
+          "summary": "/admins/add/{userId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/admins/delete/{userId}": {
+        "get": {
+          "tags":["users"],
+          "summary": "/admins/delete/{userId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/members/banForm/{userId}": {
+        "get": {
+          "tags":["users"],
+          "summary": "/members/banForm/{userId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/members/ban/{userId}": {
+        "post": {
+          "tags":["users"],
+          "summary": "/members/ban/{userId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/members/unban/{userId}": {
+        "get": {
+          "tags":["users"],
+          "summary": "/members/unban/{userId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/modos/add/{userId}": {
+        "get": {
+          "tags":["users"],
+          "summary": "/modos/add/{userId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/medias/add": {
+        "get": {
+          "tags":["media"],
+          "summary": "/medias/add",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/medias/create": {
+        "post": {
+          "tags":["media"],
+          "summary": "/medias/create",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/medias/edit/{id}": {
+        "get": {
+          "tags":["media"],
+          "summary": "/medias/edit/{id}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/medias/update": {
+        "post": {
+          "tags":["media"],
+          "summary": "/medias/update",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/medias/delete/{id}": {
+        "get": {
+          "tags":["media"],
+          "summary": "/medias/delete/{id}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/medias/list": {
+        "get": {
+          "tags":["media"],
+          "summary": "/medias/list",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/medias/active/{mediaId}": {
+        "get": {
+          "tags":["media"],
+          "summary": "/medias/active/{mediaId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "mediaId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/medias/unactive/{mediaId}": {
+        "get": {
+          "tags":["media"],
+          "summary": "/medias/unactive/{mediaId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "mediaId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/articles/add": {
+        "get": {
+          "tags":["articles"],
+          "summary": "/articles/add",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/articles/create": {
+        "post": {
+          "tags":["articles"],
+          "summary": "/articles/create",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/article/{articleId}": {
+        "get": {
+          "tags":["articles"],
+          "summary": "/article/{articleId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "articleId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/article/edit/{articleId}": {
+        "get": {
+          "tags":["articles"],
+          "summary": "/article/edit/{articleId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "articleId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/article/update/{articleId}": {
+        "post": {
+          "tags":["articles"],
+          "summary": "/article/update/{articleId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "articleId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/article/delete/{articleId}": {
+        "get": {
+          "tags":["articles"],
+          "summary": "/article/delete/{articleId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "articleId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/comments/add/{articleId}": {
+        "post": {
+          "tags":["comments"],
+          "summary": "/comments/add/{articleId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "articleId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/comment/edit/{commentId}": {
+        "get": {
+          "tags":["comments"],
+          "summary": "/comment/edit/{commentId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "commentId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/comment/update/{commentId}": {
+        "post": {
+          "tags":["comments"],
+          "summary": "/comment/update/{commentId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "commentId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/comment/delete/{commentId}/{articleId}": {
+        "get": {
+          "tags":["comments"],
+          "summary": "/comment/delete/{commentId}/{articleId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "commentId",
+              "in": "path",
+              "required": true
+            },
+            {
+              "name": "articleId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/mp/add/{destId}/{dest}": {
+        "get": {
+          "tags":["mp"],
+          "summary": "/mp/add/{destId}/{dest}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "destId",
+              "in": "path",
+              "required": true
+            },
+            {
+              "name": "dest",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        },
+        "post": {
+          "tags":["mp"],
+          "summary": "/mp/add/{destId}/{dest}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "destId",
+              "in": "path",
+              "required": true
+            },
+            {
+              "name": "dest",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/mp/list/{userId}": {
+        "get": {
+          "tags":["mp"],
+          "summary": "/mp/list/{userId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/mp/single/{mpId}": {
+        "get": {
+          "tags":["mp"],
+          "summary": "/mp/single/{mpId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "mpId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/mp/{mpId}": {
+        "get": {
+          "tags":["mp"],
+          "summary": "/mp/{mpId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "mpId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        },
+        "post": {
+          "tags":["mp"],
+          "summary": "/mp/{mpId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "mpId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/mp/delete/{mpId}": {
+        "get": {
+          "tags":["mp"],
+          "summary": "/mp/delete/{mpId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "mpId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/mp/response/create/{mpId}": {
+        "post": {
+          "tags":["mp"],
+          "summary": "/mp/response/create/{mpId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "mpId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/mp/response/edit/{mpRespId}": {
+        "get": {
+          "tags":["mp"],
+          "summary": "/mp/response/edit/{mpRespId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "mpRespId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/mp/response/update/{mpRespId}": {
+        "post": {
+          "tags":["mp"],
+          "summary": "/mp/response/update/{mpRespId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "mpRespId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/mp/response/delete/{mpRespId}/{mpId}": {
+        "get": {
+          "tags":["mp"],
+          "summary": "/mp/response/delete/{mpRespId}/{mpId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "mpRespId",
+              "in": "path",
+              "required": true
+            },
+            {
+              "name": "mpId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/editos/add": {
+        "get": {
+          "tags":["editos"],
+          "summary": "/editos/add",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/editos/create": {
+        "post": {
+          "tags":["editos"],
+          "summary": "/editos/create",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/editos/list": {
+        "get": {
+          "tags":["editos"],
+          "summary": "/editos/list",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/editos/edit/{editoId}": {
+        "get": {
+          "tags":["editos"],
+          "summary": "/editos/edit/{editoId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "editoId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/editos/update/{editoId}": {
+        "post": {
+          "tags":["editos"],
+          "summary": "/editos/update/{editoId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "editoId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/editos/delete/{editoId}": {
+        "get": {
+          "tags":["editos"],
+          "summary": "/editos/delete/{editoId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "editoId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/editos/active/{editoId}": {
+        "get": {
+          "tags":["editos"],
+          "summary": "/editos/active/{editoId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "editoId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/editos/unactive/{editoId}": {
+        "get": {
+          "tags":["editos"],
+          "summary": "/editos/unactive/{editoId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "editoId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/notes/add": {
+        "get": {
+          "tags":["notes"],
+          "summary": "/notes/add",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/notes/create": {
+        "post": {
+          "tags":["notes"],
+          "summary": "/notes/create",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/notes/edit/{noteId}": {
+        "get": {
+          "tags":["notes"],
+          "summary": "/notes/edit/{noteId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "noteId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/notes/update/{noteId}": {
+        "post": {
+          "tags":["notes"],
+          "summary": "/notes/update/{noteId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "noteId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/notes/delete/{noteId}": {
+        "get": {
+          "tags":["notes"],
+          "summary": "/notes/delete/{noteId}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "noteId",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      }
+    },
+    "swagger": "2.0"
+  }

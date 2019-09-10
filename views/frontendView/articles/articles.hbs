@@ -6,12 +6,7 @@
     {{#if article}}
     <section class="galCont">
         {{#each article}}
-        <article class="bloc">
-            <h2><a href="/article/{{_id}}" {{#if read}}class="read"{{/if}}>{{title}}</a></h2>
-            <div class="ckContent">
-                {{{content}}}
-            </div>
-            <p>Par <a href="/userProfile/{{authorId}}">{{author}}</a>, le {{formatDate}}</p>
+        <article class="bloc blocList">
             {{#if isOwner}}
             <div class="adminButtonsCont">
                 <a class="button" href="/article/edit/{{_id}}">Modifier</a>
@@ -39,6 +34,11 @@
                 {{> btnModArt}}
                 {{/if}}{{/if}}
             {{/if}}{{/if}}{{/if}}
+            <p>Par <a href="/userProfile/{{authorId}}">{{author}}</a>, le {{formatDate}}</p>
+            <h2><a href="/article/{{_id}}" {{#if read}}class="read"{{/if}}>{{title}}</a></h2>
+            <div class="ckContent">
+                {{{content}}}
+            </div>
         </article>
         {{/each}}
     </section>

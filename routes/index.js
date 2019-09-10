@@ -1,9 +1,14 @@
 const express = require('express'),
+      swaggerUi = require('swagger-ui-express'),
+      swaggerDocument = require('../assets/swagger.json')
       router = express.Router()
 
-// ########################
-//       Middlewares    
-// ########################
+      // ########################
+      //       Middlewares    
+      // ########################
+
+    // Doc
+router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
     // Users
 const auth = require('../middlewares/auth'),

@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
 
     let title = 'Fil d\'actualités - '
 
-    Articles.find({}, null, { sort: { tStamp: -1 } }, async (err, article) => {
+    await Articles.find({}, null, { sort: { tStamp: -1 } }, async (err, article) => {
 
         if(err){
             console.log(err);
