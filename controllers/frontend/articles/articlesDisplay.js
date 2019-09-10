@@ -14,6 +14,7 @@ module.exports = async (req, res) => {
 
             let artBody = {_id: article[i]._id, title: article[i].title, content: article[i].content, author: article[i].author, authorId: article[i].authorId, formatDate: article[i].formatDate}
 
+
             if (article[i].tStamp >= req.session.lastVisit) {
                 if (req.session['read' + article[i]._id] && req.session['read' + article[i]._id] >= article[i].tStamp) {
 
@@ -36,7 +37,9 @@ module.exports = async (req, res) => {
             }
             await Users.findById(article[i].authorId, (error, usr) =>{
 
-                if (article[i].authorId === req.session.userId){
+                if (error) console.log(error);
+                
+                if (artBody.authorId === req.session.userId){
                     article[i] = {
                         ...artBody,
                         read: article[i].read,
