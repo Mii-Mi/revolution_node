@@ -9,13 +9,14 @@ module.exports = async (req, res) => {
 
         if(err){
             console.log(err);
+            return res.redirect('/articles/display')
         }
         for (i = 0; i < article.length; i++) {
 
             let artBody = {_id: article[i]._id, title: article[i].title, content: article[i].content, author: article[i].author, authorId: article[i].authorId, formatDate: article[i].formatDate}
 
 
-            if (article[i].tStamp >= req.session.lastVisit) {
+            if (article[i] && article[i].tStamp >= req.session.lastVisit) {
                 if (req.session['read' + article[i]._id] && req.session['read' + article[i]._id] >= article[i].tStamp) {
 
                     article[i] = {
@@ -37,7 +38,10 @@ module.exports = async (req, res) => {
             }
             await Users.findById(article[i].authorId, (error, usr) =>{
 
-                if (error) console.log(error);
+                if (error){
+                    console.log(error);
+                    return res.redirect('/articles/display')
+                }
                 
                 if (artBody.authorId === req.session.userId){
                     article[i] = {

@@ -56,6 +56,7 @@ module.exports = (req, res) => {
                     res.redirect('/')
                 } else {
                     console.log('message sent: ' + info.response);
+                    req.flash('succes', 'Un lien de réinitialisation vous a été envoyé !')
                     res.redirect('/')
                 }
             })
