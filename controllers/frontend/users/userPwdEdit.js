@@ -1,7 +1,7 @@
 Users = require('../../../models/User')
 
-module.exports = (req, res) => {
-    Users.findById(req.params.usrId, (err, usr) => {
+module.exports = async (req, res) => {
+    await Users.findById(req.params.usrId, (err, usr) => {
         if (err){
 
             console.log(err);
