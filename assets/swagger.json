@@ -308,9 +308,9 @@
         }
       },
       "/admins/delete/{userId}": {
-        "get": {
+        "delete": {
           "tags":["users"],
-          "summary": "/admins/delete/{userId}",
+          "summary": "a quoi elle sert",
           "consumes": [
             "application/json"
           ],

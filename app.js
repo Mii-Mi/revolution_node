@@ -50,6 +50,11 @@ app.use(routes);
 
 app.use(express.static('public'));
 
+// Page Error 404
+app.use((req, res) => {
+    res.render('404')
+  })
+
 // ########################
 //         Run App
 // ########################
