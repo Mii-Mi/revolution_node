@@ -7,7 +7,9 @@ module.exports = (req, res) => {
             console.log(err);
 
         } else if (req.params.usrTstamp !== usr.tStamp) {
-
+            console.log(req.params.usrTstamp);
+            console.log((usr.tStamp));
+            
             req.flash('error', 'Le lien de réinitialisation n\'est pas valide !')
             return res.redirect('/')
 
