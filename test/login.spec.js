@@ -55,7 +55,7 @@ describe('#login', ()=>{
             .end((err, res) => {
                 res.should.have.status(200)
                 res.body.should.be.a('object')
-                res.req.path.should.eql('/userProfile/5cd9a8b456f71b09c7018d6a')
+                res.req.path.should.eql('/userProfile/5d78a6d9db100e0991cc8e6d')
             done()
             })
 
