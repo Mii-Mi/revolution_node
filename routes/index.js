@@ -1,6 +1,6 @@
 const express = require('express'),
       swaggerUi = require('swagger-ui-express'),
-      swaggerDocument = require('../assets/swagger.json')
+      swaggerDocument = require('../assets/swagger.json'),
       router = express.Router()
 
       // ########################
