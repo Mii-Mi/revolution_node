@@ -13,11 +13,11 @@ module.exports = async (req, res) => {
         }
         for (i = 0; i < article.length; i++) {
 
-            let artBody = {_id: article[i]._id, title: article[i].title, content: article[i].content, author: article[i].author, authorId: article[i].authorId, formatDate: article[i].formatDate}
+            let artBody = {_id: article[i]._id, title: article[i].title, content: article[i].content, author: article[i].author, authorId: article[i].authorId, formatDate: article[i].formatDate, tStamp: article[i].tStamp}
 
 
-            if (article[i] && article[i].tStamp >= req.session.lastVisit) {
-                if (req.session['read' + article[i]._id] && req.session['read' + article[i]._id] >= article[i].tStamp) {
+            if (artBody && artBody.tStamp >= req.session.lastVisit) {
+                if (req.session['read' + artBody._id] && req.session['read' + artBody._id] >= artBody.tStamp) {
 
                     artBody = {
                         ...artBody,
