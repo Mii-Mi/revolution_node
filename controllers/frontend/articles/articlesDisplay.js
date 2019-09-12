@@ -15,6 +15,9 @@ module.exports = async (req, res) => {
 
             let artBody = {_id: article[i]._id, title: article[i].title, content: article[i].content, author: article[i].author, authorId: article[i].authorId, formatDate: article[i].formatDate, tStamp: article[i].tStamp}
 
+            if (!artBody._id){
+                res.redirect('articles/display')
+            }
 
             if (artBody.tStamp >= req.session.lastVisit) {
                 if (req.session['read' + artBody._id] && req.session['read' + artBody._id] >= artBody.tStamp) {
