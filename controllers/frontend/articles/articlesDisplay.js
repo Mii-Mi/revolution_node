@@ -46,7 +46,7 @@ module.exports = async (req, res) => {
                 if (artBody.authorId === req.session.userId){
                     article[i] = {
                         ...artBody,
-                        read: artBody.read,
+                        // read: artBody.read,
                         isOwner: true
                     }
                 }else{
@@ -54,28 +54,28 @@ module.exports = async (req, res) => {
                         case 0:
                             article[i] ={
                                 ...artBody,
-                                read: artBody.read,
+                                // read: artBody.read,
                                 adminArt: true
                             }
                             break;
                         case 1:
                             article[i] ={
                                 ...artBody,
-                                read: artBody.read,
+                                // read: artBody.read,
                                 memberArt: true
                             }
                             break;
                         case 2:
                             article[i] ={
                                 ...artBody,
-                                read: artBody.read,
+                                // read: artBody.read,
                                 modoArt: true
                             }
                             break;
                         case 3:
                             article[i] ={
                                 ...artBody,
-                                read: artBody.read,
+                                // read: artBody.read,
                                 bannedArt: true
                             }
                             break;
