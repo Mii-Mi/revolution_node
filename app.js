@@ -9,6 +9,7 @@ const exphbs = require('express-handlebars'),
       fileupload = require('express-fileupload'),
       expressSession = require('express-session'),
       MongoStore = require('connect-mongo'),
+      cookieParser = require('cookie-parser'),
       flash = require('express-flash')
 
 app.engine('.hbs', exphbs({ 
@@ -25,6 +26,7 @@ mongoose.set('useCreateIndex', true)
 mongoose.connect('mongodb://localhost:27017/revolution');
 
 app.use(helmet())
+app.use(cookieParser())
 
 app.use(expressSession({
     secret: 'securite',

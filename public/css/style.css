@@ -336,9 +336,10 @@ iframe{
 .blocList{
     /* border-bottom: 1px solid rgb(228, 228, 0);
     margin-bottom: 10px; */
-    max-height: 35em;
+    max-height: 45em;
     overflow: auto;
 }
+
 .read{
     color: rgba(228, 228, 0, 0.6)
 }
