@@ -196,7 +196,7 @@
         }
       },
       "/users/profile/edit/{userId}": {
-        "get": {
+        "put": {
           "tags":["users"],
           "summary": "/users/profile/edit/{userId}",
           "consumes": [
@@ -213,7 +213,7 @@
         }
       },
       "/users/profile/update/{profileId}": {
-        "post": {
+        "put": {
           "tags":["users"],
           "summary": "/users/profile/update/{profileId}",
           "consumes": [
@@ -274,7 +274,7 @@
         }
       },
       "/users/password/update/{usrId}": {
-        "post": {
+        "put": {
           "tags":["users"],
           "summary": "/users/password/update/{usrId}",
           "consumes": [
@@ -291,7 +291,7 @@
         }
       },
       "/admins/add/{userId}": {
-        "get": {
+        "put": {
           "tags":["users"],
           "summary": "/admins/add/{userId}",
           "consumes": [
@@ -310,7 +310,7 @@
       "/admins/delete/{userId}": {
         "delete": {
           "tags":["users"],
-          "summary": "a quoi elle sert",
+          "summary": "/admins/delete/{userId}",
           "consumes": [
             "application/json"
           ],
@@ -342,7 +342,7 @@
         }
       },
       "/members/ban/{userId}": {
-        "post": {
+        "put": {
           "tags":["users"],
           "summary": "/members/ban/{userId}",
           "consumes": [
@@ -359,7 +359,7 @@
         }
       },
       "/members/unban/{userId}": {
-        "get": {
+        "put": {
           "tags":["users"],
           "summary": "/members/unban/{userId}",
           "consumes": [
@@ -376,7 +376,7 @@
         }
       },
       "/modos/add/{userId}": {
-        "get": {
+        "put": {
           "tags":["users"],
           "summary": "/modos/add/{userId}",
           "consumes": [
@@ -432,7 +432,7 @@
         }
       },
       "/medias/update": {
-        "post": {
+        "put": {
           "tags":["media"],
           "summary": "/medias/update",
           "consumes": [
@@ -443,7 +443,7 @@
         }
       },
       "/medias/delete/{id}": {
-        "get": {
+        "delete": {
           "tags":["media"],
           "summary": "/medias/delete/{id}",
           "consumes": [
@@ -471,7 +471,7 @@
         }
       },
       "/medias/active/{mediaId}": {
-        "get": {
+        "put": {
           "tags":["media"],
           "summary": "/medias/active/{mediaId}",
           "consumes": [
@@ -488,7 +488,7 @@
         }
       },
       "/medias/unactive/{mediaId}": {
-        "get": {
+        "put": {
           "tags":["media"],
           "summary": "/medias/unactive/{mediaId}",
           "consumes": [
@@ -561,7 +561,7 @@
         }
       },
       "/article/update/{articleId}": {
-        "post": {
+        "put": {
           "tags":["articles"],
           "summary": "/article/update/{articleId}",
           "consumes": [
@@ -578,7 +578,7 @@
         }
       },
       "/article/delete/{articleId}": {
-        "get": {
+        "delete": {
           "tags":["articles"],
           "summary": "/article/delete/{articleId}",
           "consumes": [
@@ -629,7 +629,7 @@
         }
       },
       "/comment/update/{commentId}": {
-        "post": {
+        "put": {
           "tags":["comments"],
           "summary": "/comment/update/{commentId}",
           "consumes": [
@@ -646,7 +646,7 @@
         }
       },
       "/comment/delete/{commentId}/{articleId}": {
-        "get": {
+        "delete": {
           "tags":["comments"],
           "summary": "/comment/delete/{commentId}/{articleId}",
           "consumes": [
@@ -776,7 +776,7 @@
         }
       },
       "/mp/delete/{mpId}": {
-        "get": {
+        "delete": {
           "tags":["mp"],
           "summary": "/mp/delete/{mpId}",
           "consumes": [
@@ -827,7 +827,7 @@
         }
       },
       "/mp/response/update/{mpRespId}": {
-        "post": {
+        "put": {
           "tags":["mp"],
           "summary": "/mp/response/update/{mpRespId}",
           "consumes": [
@@ -844,7 +844,7 @@
         }
       },
       "/mp/response/delete/{mpRespId}/{mpId}": {
-        "get": {
+        "delete": {
           "tags":["mp"],
           "summary": "/mp/response/delete/{mpRespId}/{mpId}",
           "consumes": [
@@ -916,7 +916,7 @@
         }
       },
       "/editos/update/{editoId}": {
-        "post": {
+        "put": {
           "tags":["editos"],
           "summary": "/editos/update/{editoId}",
           "consumes": [
@@ -933,7 +933,7 @@
         }
       },
       "/editos/delete/{editoId}": {
-        "get": {
+        "delete": {
           "tags":["editos"],
           "summary": "/editos/delete/{editoId}",
           "consumes": [
@@ -950,7 +950,7 @@
         }
       },
       "/editos/active/{editoId}": {
-        "get": {
+        "put": {
           "tags":["editos"],
           "summary": "/editos/active/{editoId}",
           "consumes": [
@@ -967,7 +967,7 @@
         }
       },
       "/editos/unactive/{editoId}": {
-        "get": {
+        "put": {
           "tags":["editos"],
           "summary": "/editos/unactive/{editoId}",
           "consumes": [
@@ -1023,7 +1023,7 @@
         }
       },
       "/notes/update/{noteId}": {
-        "post": {
+        "put": {
           "tags":["notes"],
           "summary": "/notes/update/{noteId}",
           "consumes": [
@@ -1040,7 +1040,7 @@
         }
       },
       "/notes/delete/{noteId}": {
-        "get": {
+        "delete": {
           "tags":["notes"],
           "summary": "/notes/delete/{noteId}",
           "consumes": [
