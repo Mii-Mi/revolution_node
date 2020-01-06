@@ -32,7 +32,7 @@
     "fs": "0.0.1-security",
     "helmet": "^3.21.2",
     "mocha": "^6.2.0",
-    "mongoose": "^5.5.5",
+    "mongoose": "^5.7.5",
     "nodemailer": "^6.2.1",
     "swagger-ui-express": "^4.0.7"
   },
